@@ -289,7 +289,7 @@
 							</c:when>
 							<c:otherwise>
 								<input type="button" class="like_btn" value="추천하기"
-									onclick="location.href='/boardLike.board?num=${board.boardNum}'">
+								onclick="if(${loginID != null}) {location.href='/boardLike.board?num=${board.boardNum}'}else{alert('로그인 후 추천할 수 있습니다')};">
 							</c:otherwise>
 						</c:choose>
 						<input type="button" class="like_btn" value="신고하기"
