@@ -282,7 +282,7 @@
 					<div>
 						<input type="text" name="address2" id="address2"
 							class="join-input">
-					</div>
+					<span class="searchclear" style="display: none;">X</span></div>
 				</div>
 				<input type="submit" class="btn btn-outline-success" id="join"
 					value="가입하기">
@@ -338,14 +338,16 @@
 	//text 비우기
 	$(".searchclear").click(function(){
 	  	$(this).siblings(".join-input").val("");
-	  	$(this).focus();
+	  	$(this).siblings(".join-input").focus();
 	  	$(this).hide();
+	  	$(this).parent().parent().find(".check").css("display","none");
 	});
 	//비번 재확인용 삭제버튼
 	$("#pwcheckclear").click(function(){
 	  	$(this).siblings(".join-input").val("");
-	  	$(this).focus();
+	  	$(this).siblings(".join-input").focus();
 	  	$(this).hide();
+	  	$(this).parent().parent().find(".check").css("display","none");
 	});
 			
 	//이름 유효성 검사
@@ -370,7 +372,6 @@
 		if(!idResult){
 			$("#idinfo").css("color", "red");
 			$("#idinfo").text("8~13자(영문 소문자,숫자,_)를 입력하세요.");
-			//$("#id").val("");
 			$("#id").focus();
 		} else{
 			$.ajax({
@@ -465,7 +466,7 @@
 		let name = $("#name").val();
 		let nameRegex = /^[가-힣]{2,6}$/;//2~6글자 한글
 		let nameResult = nameRegex.test(name);
-		if(name==""){
+		if(name.replace(/\s|　/gi, "").length == 0){
 			alert("이름을 입력해주세요.");
 			return false;
 		} 
@@ -476,7 +477,7 @@
 		let id = $("#id").val();
 		let idRegex = /^[\da-z_]{8,13}$/; //영어 소문자, 숫자, 언더바 8~13글자
 		let idResult = idRegex.test(id);
-		if(id ==""){
+		if(id.replace(/\s|　/gi, "").length == 0){
 			alert("아이디를 입력해주세요.");
 			return false;
 		}
@@ -487,11 +488,11 @@
 		let pw = $("#pw").val();
 		let pwRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/; //영문, 숫자를 하나 이상 포함한 8~16자
 		let pwResult = pwRegex.test(pw);
-		if(pw == ""){
+		if(pw.replace(/\s|　/gi, "").length == 0){
 			alert("비밀번호를 입력해주세요.");
 			return false;
 		}
-		if($("#pwcheck").val() == ""){
+		if($("#pwcheck").val().replace(/\s|　/gi, "").length == 0){
 			alert("비밀번호 재확인을 입력해주세요.");
 			return false;
 		}
@@ -502,7 +503,7 @@
 		let birthday = $("#birthday").val();
 		let birthdayRegex = /^([0][0-3](0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1]))|([3-9][0-9](0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1]))/; //생일 6자리
 		let birthdayResult = birthdayRegex.test(birthday);
-		if(birthday == ""){
+		if(birthday.replace(/\s|　/gi, "").length == 0){
 			alert("생년월일을 입력해주세요.");
 			return false;
 		}
@@ -513,7 +514,7 @@
 		let email = $("#email").val();
 		let emailRegex = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/; //이메일
 		let emailResult = emailRegex.test(email);
-		if(email == ""){
+		if(email.replace(/\s|　/gi, "").length == 0){
 			alert("이메일을 입력해주세요.");
 			return false;
 		}
@@ -524,12 +525,24 @@
 		let phone = $("#phone").val();
 	    let phoneRegex = /^010[0-9]{8}$/; //핸드폰 11자리
 		let phoneResult = phoneRegex.test(phone);
-		if(phone == ""){
+		if(phone.replace(/\s|　/gi, "").length == 0){
 			alert("휴대폰번호를 입력해주세요.");
 			return false;
 		}
 		if(!phoneResult){
 			alert("휴대폰번호를 형식에 맞게 입력해주세요.");
+			return false;
+		}
+		if($("#zipcode").val().replace(/\s|　/gi, "").length == 0){
+			alert("우편번호를 입력해주세요.");
+			return false;
+		}
+		if($("#address1").val().replace(/\s|　/gi, "").length == 0){
+			alert("주소를 입력해주세요.");
+			return false;
+		}
+		if($("#address2").val().replace(/\s|　/gi, "").length == 0){
+			alert("상세주소를 입력해주세요.");
 			return false;
 		}
 		alert("가입이 완료되었습니다 :) 환영합니다!");

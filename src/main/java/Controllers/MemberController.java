@@ -203,8 +203,10 @@ public class MemberController extends HttpServlet {
 				
 			//카카오 탈퇴
 			}else if(uri.equals("/kakaoout.member")) {
+				String id= (String) (request.getSession().getAttribute("loginID"));
 				String email=(String) (request.getSession().getAttribute("kakaoemail"));
-				int result = dao.kakaoOut(email);
+				int result = mydao.memberout(id);
+				int result2 = dao.kakaoOut(email);
 				request.getSession().invalidate();
 				response.sendRedirect("index.jsp");
 			}
