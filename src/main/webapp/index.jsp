@@ -355,6 +355,7 @@
 
 	</div>
 
+
 	<script>
 		$("#join").on("click", function() {
 			location.href = "/Member/joinView.jsp";

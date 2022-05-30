@@ -60,17 +60,17 @@
 /* 텍스트 CSS */
 
 .txt_box{
-  
-  
   width: 600px;
   float: left;
   margin-left: 40px;
   overflow: hidden;
   padding-top: 30px;
   padding-left: 40px; 
+  font-family: 'Hahmlet', serif;
 }
 
   .product_name{
+     font-family: 'Hahmlet', serif;
      font-size: 30px;
      font-weight: 300px;
 
@@ -286,11 +286,17 @@ overflow: hidden;}
  font-weight: 300px;
 
 }
+
 dt{
 float:left;
 display: inline-block;
-width: 130px;
+width: 120px;
+font-size:10px;
 } 
+dd{
+font-size:10px;
+}
+
 
 }
 
@@ -344,7 +350,7 @@ width: 130px;
 
 }
 
-@media (max-width: 474px) {
+@media (max-width: 520px) {
 
 /* 이미지 */
 
@@ -375,20 +381,27 @@ margin-top: 30px;
 margin-left: 20px;
 width: 300px;
 float: left;
-overflow: hidden;}
+overflow: hidden;
+}
 
 .product_name{
- font-size: 30px;
- font-weight: 300px;
+ font-size: 20px;
+ font-weight: 200px;
 
 }
 dt{
 float:left;
 display: inline-block;
-width: 130px;
+width: 80px;
+font-size:10px;
 } 
+dd{
+font-size:10px;
+}
 
 }
+
+
 
 
 /* header부분 */
@@ -410,6 +423,8 @@ ul {
 #search_input {
 	width: 100%;
 }
+
+
 
 /* footer 부분 */
 .site-footer {
@@ -571,4 +586,11 @@ ul {
 		margin-right: 0;
 		font-weight: 600
 	}
+}
+
+
+.Result_grade{
+	font-family: 'Hahmlet', serif;
+	font-size: 14px;
+	color: #f8bc3b;
 }
