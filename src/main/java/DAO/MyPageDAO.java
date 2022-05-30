@@ -183,7 +183,7 @@ public class MyPageDAO {
 			}
 
 			if (nextNavi) {
-				sbr.append("<li class='page-item'>"+"<a class='page-link' href='article.manager?cpage="+(endNavi+1) +"'>" + "&raquo;" + "</a></li>");
+				sbr.append("<li class='page-item'>"+"<a class='page-link' href='myboard.board?cpage="+(endNavi+1) +"'>" + "&raquo;" + "</a></li>");
 			}
 			return sbr.toString();
 		}
