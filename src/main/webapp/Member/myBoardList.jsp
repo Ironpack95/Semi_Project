@@ -236,7 +236,13 @@
 										</c:forEach>
 									</table>
     </div>
+    						<div class="col-12 mb-2 mt-1">
+								<nav aria-label="Page navigation example">
+									<ul class="pagination justify-content-center">${navi}</ul>
+								</nav>
+							</div>
     </div>
+    
 
 	
 

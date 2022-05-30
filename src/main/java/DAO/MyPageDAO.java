@@ -170,15 +170,15 @@ public class MyPageDAO {
 			
 			// 3) 출력 : StringBuilder
 			if (preNavi) {
-				sbr.append("<li class='page-item disabled'>"+"<a class='page-link' href='article.manager?cpage="+(startNavi-1) +"'>" + "&laquo;" + "</a></li>");
-			}
+				sbr.append("<li class='page-item disabled'>"+"<a class='page-link' href='myboard.board?cpage="+(startNavi-1) +"'>" + "&laquo;" + "</a></li>");
+			}                                                         
 
 			for (int i=startNavi; i<= endNavi; i++) {
 				// 페이지 번호마다 링크 걸기
 				if(i == currentPage) {
 					sbr.append("<li class='page-item active'>"+"<a class='page-link' href='article.manager?cpage="+i+"'>" + i + "</a></li>");
 				} else {
-					sbr.append("<li class='page-item'>"+"<a class='page-link' href='article.manager?cpage="+i+"'> " + i + " </a></li>");
+					sbr.append("<li class='page-item'>"+"<a class='page-link' href='myboard.board?cpage="+i+"'> " + i + " </a></li>");
 				}
 			}
 
