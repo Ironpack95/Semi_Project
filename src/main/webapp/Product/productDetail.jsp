@@ -202,7 +202,7 @@
 		<div class="row">
 
  
-			<div class="col-12 col-xs-12" id="content" style="height: auto;">
+			<div class="col-12" id="content" style="height: auto;">
 
 				<div class="section_s01">
 
@@ -212,7 +212,7 @@
                 <div class="main_img">
 				
 					<div class="img_box">
-                        <img src="../thumbnail/${dto.sysName }" class="img">
+                        <img src="../thumbnail/${dto.sysName}" class="img">
 						
 					</div>
 				
@@ -220,27 +220,31 @@
 					
 			
 					<div class="txt_box">
-                        <dd>${dto.smry }</dd>
+                        <dd style="color:rgb(0, 90, 0);">${dto.smry }</dd>
 						<div class="product_name">${dto.product_name }</div>
                         
-						<hr style="border: 1px solid black; margin-top: 30px; margin-bottom: 60px;">
+						<hr style="border: 1px solid black; margin-top: 15px; margin-bottom: 30px;">
 					<dl>
 					
-					<dt class="price">가격</dt> 	<dd>${dto.price }</dd>
+					<dt class="price">가격</dt> 	<dd>${dto.price }원</dd>
 					
 					<dt class="kind">유형</dt> <dd>${dto.kind }</dd>
 					<dt class="abv">도수(%)</dt> <dd>${dto.abv }</dd>
 					<dt class="capacity">용량(ml)</dt> <dd>${dto.capacity }</dd>
 					<dt class="brewery">양조장</dt> <dd>${dto.brewery }</dd>
-					<dt class="adress1">판매처</dt> <dd>${dto.adress1 } ${dto.adress2 }</dd>
-                    <dt class="grade">평점</dt><div class="row Result_grade">	<div class="col-1 px-0">
+					<dt class="adress1">주소</dt> <dd>${dto.adress1 } ${dto.adress2 }</dd>
+                    <dt class="grade">평점</dt>
+                    <div class="row Result_grade">
+                    	<div class="col-1 d-none d-lg-block px-0">
 												<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
-  <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
-</svg>
-											</div>
-											<div class="col-11 px-1" style="line-height: 24px;">
-												${dto.grade}
-											</div>
+  														<path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+												</svg>
+						</div>
+						
+						<div class="col-11 px-1" style="line-height: 24px;">
+							${dto.grade}
+						</div>
+					</div>
 					</dl>
                     </div>
                     </div>

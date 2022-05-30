@@ -74,7 +74,7 @@
 									<li><a class="dropdown-item" href="/list.ProductController?cpage=1">전체보기</a></li>
 								</ul></li>
 
-							<li class="d-none d-lg-none nav-item"><a href="/Search/search.jsp"
+							<li class="d-none d-lg-block nav-item"><a href="/Search/search.jsp"
 								class="nav-link mx-0 mx-0 mx-md-0 mx-lg-3">우리술 검색</a></li>
 
 
