@@ -176,7 +176,7 @@ public class MyPageDAO {
 			for (int i=startNavi; i<= endNavi; i++) {
 				// 페이지 번호마다 링크 걸기
 				if(i == currentPage) {
-					sbr.append("<li class='page-item active'>"+"<a class='page-link' href='article.manager?cpage="+i+"'>" + i + "</a></li>");
+					sbr.append("<li class='page-item active'>"+"<a class='page-link' href='myboard.board?cpage="+i+"'>" + i + "</a></li>");
 				} else {
 					sbr.append("<li class='page-item'>"+"<a class='page-link' href='myboard.board?cpage="+i+"'> " + i + " </a></li>");
 				}
