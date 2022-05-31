@@ -280,7 +280,7 @@ public class BoardController extends HttpServlet {
                
                
                request.setAttribute("list", list);
-               request.setAttribute("navi",pageNavi);
+               request.setAttribute("navi", pageNavi);
                request.getRequestDispatcher("/Member/myBoardList.jsp").forward(request, response);
            }
 

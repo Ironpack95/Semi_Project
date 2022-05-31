@@ -170,20 +170,20 @@ public class MyPageDAO {
 			
 			// 3) 출력 : StringBuilder
 			if (preNavi) {
-				sbr.append("<li class='page-item disabled'>"+"<a class='page-link' href='article.manager?cpage="+(startNavi-1) +"'>" + "&laquo;" + "</a></li>");
+				sbr.append("<li class='page-item disabled'>"+"<a class='page-link' href='myboard.board?cpage="+(startNavi-1) +"'>" + "&laquo;" + "</a></li>");
 			}
 
 			for (int i=startNavi; i<= endNavi; i++) {
 				// 페이지 번호마다 링크 걸기
 				if(i == currentPage) {
-					sbr.append("<li class='page-item active'>"+"<a class='page-link' href='article.manager?cpage="+i+"'>" + i + "</a></li>");
+					sbr.append("<li class='page-item active'>"+"<a class='page-link' href='myboard.board?cpage="+i+"'>" + i + "</a></li>");
 				} else {
-					sbr.append("<li class='page-item'>"+"<a class='page-link' href='article.manager?cpage="+i+"'> " + i + " </a></li>");
+					sbr.append("<li class='page-item'>"+"<a class='page-link' href='myboard.board?cpage="+i+"'> " + i + " </a></li>");
 				}
 			}
 
 			if (nextNavi) {
-				sbr.append("<li class='page-item'>"+"<a class='page-link' href='article.manager?cpage="+(endNavi+1) +"'>" + "&raquo;" + "</a></li>");
+				sbr.append("<li class='page-item'>"+"<a class='page-link' href='myboard.board?cpage="+(endNavi+1) +"'>" + "&raquo;" + "</a></li>");
 			}
 			return sbr.toString();
 		}
@@ -191,7 +191,7 @@ public class MyPageDAO {
 		// 4) 페이지별 출력
 		public List<ManagerDTO> selectByPage(int cpage,String id) throws Exception{
 
-			String sql = "select * from (select row_number() over(order by title desc) line, board.* from board) where writer=? and board_status IN (0,2) and line between ? and ?";
+			String sql = "select * from (select row_number() over(order by title desc) line, board.* from board where writer=? and board_status IN (0,2)) where line between ? and ?";
 
 			int start = cpage*10 -9;
 			int end = cpage*10;
