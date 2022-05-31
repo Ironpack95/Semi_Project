@@ -209,7 +209,7 @@
 			</div>
 			<div class="col-12 col-md-9">
 				<span><h3>회원탈퇴 안내</h3></span>
-				<div id="message">
+				<div id="message" class="p-auto">
 					우리술夜 탈퇴 안내 회원님께서 회원탈퇴를 원하신다니 저희 사이트의 서비스가 많이 부족하고 미흡했나 봅니다.<br>
 					불편하셨던 점이나 불만사항이 없도록 불편함을 해결해 드리도록 노력하겠습니다.<br> <br> <span
 						style="color: red;"> ※탈퇴시 회원님의 모든 정보는 삭제됩니다.※</span> <br> <br>
@@ -220,7 +220,11 @@
  		<c:choose>
 	  		<c:when test="${loginID!=null && empty kakaoemail}">
 				<div id="btn" style="text-align: center;padding-bottom: 20px;">
+				
+				<c:if test="${! loginID eq 'admin'}">
 				<button type="button" class="btn btn-danger" id="ok">확인</button>
+				</c:if>
+
 				</div>
 			</c:when>
 	  		<c:when test="${kakaoemail !=null}">
