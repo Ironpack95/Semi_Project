@@ -319,7 +319,7 @@
                $('#back-to-top').tooltip('hide');
                $('body,html').animate({
                    scrollTop: 0
-               }, 800);
+               }, 600);
                return false;
            });
            
