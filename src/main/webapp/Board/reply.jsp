@@ -270,8 +270,7 @@
 
 					<div id="head5" style="position: relative;">
 						<div class="reply_cont disnone">
-							총 댓글 :
-							<c:out value="${replyCount}" />
+							총 댓글 : 0
 						</div>
 						<c:forEach var="reply" items="${reply}" varStatus="stat">
 							<script class="scriptDelte">
@@ -285,6 +284,7 @@
 						<c:choose>
 							<c:when test="${boardLike > 0}">
 								<input type="button" class="like_btn" value="추천완료">
+								<%-- onclick="if(${loginID != null}) {location.href='/boardLikeDelete.board?num=${board.boardNum}'}else{alert('로그인 후 추천할 수 있습니다')};"> --%>
 							</c:when>
 							<c:otherwise>
 								<input type="button" class="like_btn" value="추천하기"

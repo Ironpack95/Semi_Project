@@ -162,7 +162,19 @@ public class BoardController extends HttpServlet {
 				}
 				request.getRequestDispatcher("/boardSelect.board?num="+num).forward(request, response);
 
-				// 게시글 설정 (1= 삭제, 2= 신고됨)
+				// 게시글 좋아요 취소
+			}else if(uri.equals("/boardLikeDelete.board")) {
+				int num = Integer.parseInt(request.getParameter("num"));
+
+				String id = (String) (request.getSession().getAttribute("loginID"));
+				int result = dao.boardLikeCheck(num,id); 
+				if(result > 1) {
+					// 게시글 좋아요 개수 업데이트 
+					result = dao.boardLikeDelete(num);
+					// 게시글 좋아요 누른 유저 정보 등록
+					dao.boardUserLikeDelete(num,id);
+				}
+				request.getRequestDispatcher("/boardSelect.board?num="+num).forward(request, response);
 			}else if(uri.equals("/boardSet.board")) {
 				int num = Integer.parseInt(request.getParameter("num"));
 				int stat = Integer.parseInt(request.getParameter("stat"));

@@ -331,4 +331,31 @@ public class BoardDAO {
 			}
 		}
 	}
+
+	// 게시글 좋아요 취소
+	public int boardLikeDelete(int num) throws Exception{
+		String sql = "update board set board_like = board_like - 1 where board_num = ?";
+		try(Connection con = this.getConnection();
+				PreparedStatement pstat = con.prepareStatement(sql);){
+			pstat.setInt(1, num);
+
+			try(ResultSet rs = pstat.executeQuery();){
+				con.commit();
+				return 1;
+			}
+		}
+	}
+
+	// 게시글 좋아요 누른 유저 정보 삭제
+	public void boardUserLikeDelete(int num, String id) throws Exception{
+		String sql = "delete board_like where board_num = ? and user_id = ?";
+		try(Connection con = this.getConnection();
+				PreparedStatement pstat = con.prepareStatement(sql);){
+			pstat.setInt(1, num);
+			pstat.setString(2, id);
+
+			int result = pstat.executeUpdate();
+			con.commit();
+		}
+	}
 }
