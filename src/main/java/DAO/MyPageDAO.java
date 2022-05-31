@@ -191,7 +191,7 @@ public class MyPageDAO {
 		// 4) 페이지별 출력
 		public List<ManagerDTO> selectByPage(int cpage,String id) throws Exception{
 
-			String sql = "select * from (select row_number() over(order by title desc) line, board.* from board) where writer=? and line between ? and ?";
+			String sql = "select * from (select row_number() over(order by title desc) line, board.* from board) where writer=? and board_status IN (0,2) and line between ? and ?";
 
 			int start = cpage*10 -9;
 			int end = cpage*10;

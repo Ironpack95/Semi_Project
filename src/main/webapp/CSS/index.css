@@ -16,6 +16,7 @@
 	height: 800px;
 }
 
+
 #search img {
 	height: 30px;
 	width: 30px;
@@ -24,6 +25,7 @@
 #contents img {
 	width: 100%;
 	height: 500px;
+	border-radius: 10px;
 }
 
 /* header부분 */
