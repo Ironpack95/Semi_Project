@@ -65,20 +65,19 @@
 								data-bs-toggle="dropdown" aria-expanded="false"> 우리술 정보 </a>
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 									<li><a class="dropdown-item"
-										href="/productA10.ProductController">막걸리</a></li>
+										href="/productA10.ProductController?cpage=1">막걸리</a></li>
 									<li><a class="dropdown-item"
-										href="/productA20.ProductController">전통 소주</a></li>
+										href="/productA20.ProductController?cpage=1">전통소주</a></li>
 									<li><a class="dropdown-item"
-										href="/productA30.ProductController">약주</a></li>
+										href="/productA30.ProductController?cpage=1">약주</a></li>
 									<li><a class="dropdown-item"
-										href="/productA40.ProductController">과실주</a></li>
+										href="/productA40.ProductController?cpage=1">과실주</a></li>
 									<li><a class="dropdown-item"
-										href="/productA50.ProductController">리큐르</a></li>
+										href="/productA50.ProductController?cpage=1">리큐르</a></li>
 									<li>
 										<hr class="dropdown-divider">
 									</li>
-									<li><a class="dropdown-item"
-										href="/list.ProductController">전체보기</a></li>
+									<li><a class="dropdown-item" href="/list.ProductController?cpage=1">전체보기</a></li>
 								</ul></li>
 
 							<li class="d-none d-lg-block nav-item"><a
@@ -348,7 +347,7 @@
 									action="modify.board?pseq=${board.boardNum}&seq=${i.replySeq}"
 									method="post" id="modifyFrm" enctype="multipart/form-data">
 									
-									<div class="reply_view">${i.writer}|${i.wirteDate}</div>
+									<div class="reply_view">${i.writer}|<fmt:formatDate pattern="yy년MM월dd일 HH시mm분" value="${i.wirteDate}"/></div>
 									
 									<div class="head6">
 									

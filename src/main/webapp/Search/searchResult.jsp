@@ -67,7 +67,7 @@
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 									<li><a class="dropdown-item"
 										href="/productA10.ProductController?cpage=1">막걸리</a></li>
-									<li><a class="dropdown-item"
+									<li><a class="dropdown-item"						
 										href="/productA20.ProductController?cpage=1">전통 소주</a></li>
 									<li><a class="dropdown-item"
 										href="/productA30.ProductController?cpage=1">약주</a></li>
@@ -78,8 +78,10 @@
 									<li>
 										<hr class="dropdown-divider">
 									</li>
+
 									<li><a class="dropdown-item"
 										href="/list.ProductController?cpage=1">전체보기</a></li>
+
 								</ul></li>
 
 							<li class="d-none d-lg-block nav-item"><a
@@ -233,34 +235,34 @@
 									<div class="col-2 form-check" style="padding-left: 5%;">
 										<input class="form-check-input" type="checkbox" value="막걸리"
 											id="flexCheckDefault" name="alchol"> <label
-											class="form-check-label" for="flexCheckDefault"> 막걸리
+											class="form-check-label"> 막걸리
 										</label>
 									</div>
 
 									<div class="col-2 form-check" style="padding-left: 5%;">
 										<input class="form-check-input" type="checkbox" value="전통소주"
 											id="flexCheckDefault" name="alchol"> <label
-											class="form-check-label" for="flexCheckDefault"> 전통소주
+											class="form-check-label"> 전통소주
 										</label>
 									</div>
 
 									<div class="col-2 form-check" style="padding-left: 5%;">
 										<input class="form-check-input" type="checkbox" value="약주"
 											id="flexCheckDefault" name="alchol"> <label
-											class="form-check-label" for="flexCheckDefault"> 약주 </label>
+											class="form-check-label"> 약주 </label>
 									</div>
 
 									<div class="col-2 form-check" style="padding-left: 5%;">
 										<input class="form-check-input" type="checkbox" value="과실주"
 											id="flexCheckDefault" name="alchol"> <label
-											class="form-check-label" for="flexCheckDefault"> 과실주
+											class="form-check-label"> 과실주
 										</label>
 									</div>
 
 									<div class="col-2 form-check mb-1" style="padding-left: 5%;">
 										<input class="form-check-input" type="checkbox" value="리큐르"
 											id="flexCheckDefault" name="alchol"> <label
-											class="form-check-label" for="flexCheckDefault"> 리큐르
+											class="form-check-label"> 리큐르
 										</label>
 									</div>
 
@@ -272,41 +274,41 @@
 									<div class="col-2 form-check mb-1" style="padding-left: 5%;">
 										<input class="form-check-input" type="checkbox" value="서울"
 											id="flexCheckDefault" name="area"> <label
-											class="form-check-label" for="flexCheckDefault"> 서울 </label>
+											class="form-check-label"> 서울 </label>
 									</div>
 
 									<div class="col-2 form-check" style="padding-left: 5%;">
 										<input class="form-check-input" type="checkbox" value="경기도"
 											id="flexCheckDefault" name="area"> <label
-											class="form-check-label" for="flexCheckDefault"> 경기도
+											class="form-check-label"> 경기도
 										</label>
 									</div>
 
 									<div class="col-2 form-check" style="padding-left: 5%;">
 										<input class="form-check-input" type="checkbox" value="경상도"
 											id="flexCheckDefault" name="area"> <label
-											class="form-check-label" for="flexCheckDefault"> 경상도
+											class="form-check-label"> 경상도
 										</label>
 									</div>
 
 									<div class="col-2 form-check" style="padding-left: 5%;">
 										<input class="form-check-input" type="checkbox" value="강원도"
 											id="flexCheckDefault" name="area"> <label
-											class="form-check-label" for="flexCheckDefault"> 강원도
+											class="form-check-label"> 강원도
 										</label>
 									</div>
 
 									<div class="col-2 form-check" style="padding-left: 5%;">
 										<input class="form-check-input" type="checkbox" value="전라도"
 											id="flexCheckDefault" name="area"> <label
-											class="form-check-label" for="flexCheckDefault"> 전라도
+											class="form-check-label"> 전라도
 										</label>
 									</div>
 
 									<div class="col-2 form-check" style="padding-left: 5%;">
 										<input class="form-check-input" type="checkbox" value="충청도"
 											id="flexCheckDefault" name="area"> <label
-											class="form-check-label" for="flexCheckDefault"> 충청도
+											class="form-check-label"> 충청도
 										</label>
 									</div>
 
@@ -318,31 +320,31 @@
 									<div class="col-2 form-check mb-1" style="padding-left: 5%;">
 										<input class="form-check-input" type="radio" value="1"
 											id="flexCheckDefault" name="grade"> <label
-											class="form-check-label" for="flexCheckDefault"> 1 </label>
+											class="form-check-label"> 1 </label>
 									</div>
 
 									<div class="col-2 form-check" style="padding-left: 5%;">
 										<input class="form-check-input" type="radio" value="2"
 											id="flexCheckDefault" name="grade"> <label
-											class="form-check-label" for="flexCheckDefault"> 2 </label>
+											class="form-check-label"> 2 </label>
 									</div>
 
 									<div class="col-2 form-check" style="padding-left: 5%;">
 										<input class="form-check-input" type="radio" value="3"
 											id="flexCheckDefault" name="grade"> <label
-											class="form-check-label" for="flexCheckDefault"> 3 </label>
+											class="form-check-label"> 3 </label>
 									</div>
 
 									<div class="col-2 form-check" style="padding-left: 5%;">
 										<input class="form-check-input" type="radio" value="4"
 											id="flexCheckDefault" name="grade"> <label
-											class="form-check-label" for="flexCheckDefault"> 4 </label>
+											class="form-check-label"> 4 </label>
 									</div>
 
 									<div class="col-2 form-check" style="padding-left: 5%;">
 										<input class="form-check-input" type="radio" value="5"
 											id="flexCheckDefault" name="grade"> <label
-											class="form-check-label" for="flexCheckDefault"> 5 </label>
+											class="form-check-label"> 5 </label>
 									</div>
 
 									<!-- 도수 -->

@@ -213,16 +213,16 @@
 					</div>
 					<div class="carousel-inner">
 						<div class="carousel-item active">
-							<img src="/img/indexFile/우리술.jpg" class="d-block w-100 h-auto"
+							<img src="/img/indexFile/3.png" class="d-block w-100 h-auto"
 								alt="...">
 						</div>
-						<!-- <div class="carousel-item">
-							<img src="/img/indexFile/토끼소주골드.png" class="d-block w-100 h-auto"
-								alt="...">
-						</div> -->
 						<div class="carousel-item">
-							<img src="/img/indexFile/원소주.png" class="d-block w-100 h-auto"
+							<img src="/img/indexFile/1.png" class="d-block w-100 h-auto"
 								alt="...">
+						</div>
+						<div class="carousel-item">
+							<img src="/img/indexFile/2.png" class="d-block w-100 h-auto"
+								alt="..." style="border: 3px solid black;">
 						</div>
 					</div>
 					<button class="carousel-control-prev" type="button"
@@ -354,6 +354,7 @@
 		</footer>
 
 	</div>
+
 
 	<script>
 		$("#join").on("click", function() {
