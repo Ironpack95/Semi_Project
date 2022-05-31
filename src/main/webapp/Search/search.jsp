@@ -219,7 +219,7 @@
                                     <div class="col-2 form-check" style="padding-left: 5%;">
                                         <input class="form-check-input" type="checkbox" value="막걸리"
                                             id="flexCheckDefault" name="alchol">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label class="form-check-label">
                                             막걸리
                                         </label>
                                     </div>
@@ -227,7 +227,7 @@
                                     <div class="col-2 form-check" style="padding-left: 5%;">
                                         <input class="form-check-input" type="checkbox" value="전통소주"
                                             id="flexCheckDefault" name="alchol">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label class="form-check-label">
                                             전통 소주
                                         </label>
                                     </div>
@@ -235,7 +235,7 @@
                                     <div class="col-2 form-check" style="padding-left: 5%;">
                                         <input class="form-check-input" type="checkbox" value="약주"
                                             id="flexCheckDefault" name="alchol">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label class="form-check-label">
                                             약주
                                         </label>
                                     </div>
@@ -243,7 +243,7 @@
                                     <div class="col-2 form-check" style="padding-left: 5%;">
                                         <input class="form-check-input" type="checkbox" value="과실주"
                                             id="flexCheckDefault" name="alchol">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label class="form-check-label">
                                             과실주
                                         </label>
                                     </div>
@@ -251,7 +251,7 @@
                                     <div class="col-2 form-check mb-1" style="padding-left: 5%;">
                                         <input class="form-check-input" type="checkbox" value="리큐르"
                                             id="flexCheckDefault" name="alchol">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label class="form-check-label">
                                             리큐르
                                         </label>
                                     </div>
@@ -264,7 +264,7 @@
                                     <div class="col-2 form-check mb-1" style="padding-left: 5%;">
                                         <input class="form-check-input" type="checkbox" value="서울"
                                             id="flexCheckDefault" name="area">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label class="form-check-label">
                                             서울
                                         </label>
                                     </div>
@@ -272,7 +272,7 @@
                                     <div class="col-2 form-check" style="padding-left: 5%;">
                                         <input class="form-check-input" type="checkbox" value="경기도"
                                             id="flexCheckDefault" name="area">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label class="form-check-label">
                                             경기도
                                         </label>
                                     </div>
@@ -280,7 +280,7 @@
                                     <div class="col-2 form-check" style="padding-left: 5%;">
                                         <input class="form-check-input" type="checkbox" value="경상도"
                                             id="flexCheckDefault" name="area">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label class="form-check-label">
                                             경상도
                                         </label>
                                     </div>
@@ -288,7 +288,7 @@
                                     <div class="col-2 form-check" style="padding-left: 5%;">
                                         <input class="form-check-input" type="checkbox" value="강원도"
                                             id="flexCheckDefault" name="area">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label class="form-check-label">
                                             강원도
                                         </label>
                                     </div>
@@ -296,7 +296,7 @@
                                     <div class="col-2 form-check" style="padding-left: 5%;">
                                         <input class="form-check-input" type="checkbox" value="전라도"
                                             id="flexCheckDefault" name="area">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label class="form-check-label">
                                             전라도
                                         </label>
                                     </div>
@@ -304,7 +304,7 @@
                                     <div class="col-2 form-check" style="padding-left: 5%;">
                                         <input class="form-check-input" type="checkbox" value="충청도"
                                             id="flexCheckDefault" name="area">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label class="form-check-label">
                                             충청도
                                         </label>
                                     </div>
@@ -316,35 +316,35 @@
 
                                     <div class="col-2 form-check mb-1" style="padding-left: 5%;">
                                         <input class="form-check-input" type="radio" value="1" id="flexCheckDefault" name="grade">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label class="form-check-label">
                                             1
                                         </label>
                                     </div>
 
                                     <div class="col-2 form-check" style="padding-left: 5%;">
                                         <input class="form-check-input" type="radio" value="2" id="flexCheckDefault" name="grade">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label class="form-check-label">
                                             2
                                         </label>
                                     </div>
 
                                     <div class="col-2 form-check" style="padding-left: 5%;">
                                         <input class="form-check-input" type="radio" value="3" id="flexCheckDefault" name="grade">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label class="form-check-label">
                                             3
                                         </label>
                                     </div>
 
                                     <div class="col-2 form-check" style="padding-left: 5%;">
                                         <input class="form-check-input" type="radio" value="4" id="flexCheckDefault" name="grade">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label class="form-check-label">
                                             4
                                         </label>
                                     </div>
 
                                     <div class="col-2 form-check" style="padding-left: 5%;">
                                         <input class="form-check-input" type="radio" value="5" id="flexCheckDefault" name="grade">
-                                        <label class="form-check-label" for="flexCheckDefault">
+                                        <label class="form-check-label">
                                             5
                                         </label>
                                     </div>
