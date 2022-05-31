@@ -199,7 +199,8 @@
  
 			</nav>
 			</div>
-    <div class="col-12 col-md-9" id="myboard list">
+			
+    <div class="col-12 col-lg-9" id="myboard list">
     	<table class="table table-hover">
 
 										<thead class="table-success " style="text-align: center;">

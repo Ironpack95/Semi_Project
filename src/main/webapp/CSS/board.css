@@ -54,10 +54,10 @@
 .down_board {
 	left: 0px;
 	border: 0px;
-	height: 30px;
+	height: 35px;
 	color: white;
 	background-color: #2c6246;
-	font-size: 20px;
+	font-size: 14px;
 	border-radius: 7px;
 }
 
@@ -73,7 +73,7 @@
 	height: 30px;
 	color: white;
 	background-color: #2c6246;
-	font-size: 20px;
+	font-size: 14px;
 	border-radius: 7px;
 }
 
@@ -81,7 +81,7 @@
 	background-color: #2c6246; 
 	color: white; 
 	border: 0px; 
-	font-size: 18px; 
+	font-size: 0.5rem; 
 }
 
 .top_board:hover, .down_board:hover, .down_write:hover {
@@ -271,14 +271,14 @@
 	color: white;
 }
 
-.boardTitleTd:hover {
+.boardSelect:hover .boardTitleTd {
 	padding-left: 4px;
 }
 
 .col-12 {
     flex: auto;
     width: 100%;
-    border: 1px solid;
+    border: 1px solid #999;
 }
 
 .background_box {
@@ -341,10 +341,28 @@
 	object-fit : cover; /* 정사각형 유지 였나 (이미지 깔끔하게 나오기) */
 }
 
+.boardSelect {
+	padding: 6px 0px;
+}
+
+.pc {
+	display: block;
+}
+
+.mo {
+	display: none;
+}
 @media (max-width:992px){
 	.listoff{
 	display:none;
 	
+	}
+	.pc {
+		display: none;
+	}
+	
+	.mo {
+		display: block;
 	}
 	
 	.product_show_box {
@@ -356,6 +374,15 @@
 	.product_name {
 		display: inline-block;
 		width:60%;
+	}
+	
+	.boardTitleTd {
+		text-align: center;
+	}
+	
+	.down_write {
+		left: auto;
+		right: 0px !important;
 	}
 }
 
