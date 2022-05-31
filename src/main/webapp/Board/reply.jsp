@@ -317,7 +317,7 @@
 		
 								<div id="reply_box" class="row col-lg-12">
 									<div class="col-lg-10 col-md-8 col-xs-6" style="resize: none;">
-										<textarea placeholder="댓글 내용을 입력하세요." name='content'
+										<textarea id="textadd" placeholder="댓글 내용을 입력하세요." name='content'
 											class="textarea"></textarea>
 									</div>
 									<div class="rebt col-lg-2 col-md-4 col-xs-6"
@@ -347,14 +347,16 @@
 									action="modify.board?pseq=${board.boardNum}&seq=${i.replySeq}"
 									method="post" id="modifyFrm" enctype="multipart/form-data">
 									
-									<div class="reply_view">${i.writer}|<fmt:formatDate pattern="yy년MM월dd일 HH시mm분" value="${i.wirteDate}"/></div>
+									<div class="reply_view" style="margin-top: 3%; margin-bottom:3%;">${i.writer}|<fmt:formatDate pattern="yy년MM월dd일 HH시mm분" value="${i.wirteDate}"/></div>
 									
 									<div class="head6">
 									
-										<div class="reply_contents" style="border: none;">${i.cotents}</div>
+										<div class="reply_contents" style="border: none; overflow-y:auto;">
+											<pre style="font-family: 'Hahmlet', serif;">${i.cotents}</pre>
+										</div>
 										
 										<input name='contents' value="${i.cotents}"
-											style="display: none; width: 50%;"><br>
+											style="display: none; width: 50%;">
 											
 										 <input type="hidden" id="contentsInput"
 											name="reply_contents">
@@ -432,6 +434,17 @@
 	<!-- 댓글 관련 스크립트 작성 -->
 
 	<script>
+	
+		$("#reply").on("click", function() {
+		
+			let text = $("#textadd").val();
+			if (text.replace(/\s|　/gi, "").length == 0){
+				alert("댓글을 입력해 주세요.");
+				return false;
+			}
+		})
+		
+	
 		$(".modify").on("click", function () {
 
 			$(this).siblings(".reply_contents").next().show();
