@@ -101,6 +101,24 @@ p{
 #next, #change{
 	text-align:center;
 }
+.searchclear {
+    position: absolute;
+    right: 7px;
+    top: 4px;
+    bottom: 0;
+    width: 18px;
+    height: 18px;
+    line-height:16px;
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align:center; 
+    font-stretch: wider;
+    cursor: pointer;
+    color: rgb(255, 255, 255);
+    background-color: rgb(173, 173, 173);
+    border-radius:50%;
+}
 /* header부분 */
 header {
 	font-family: 'Hahmlet', serif;
