@@ -199,13 +199,14 @@
 				<h5></h5>
 			</div>
 			<div>
+			<div  class="search-input">
 				<input type="text" class="textBox" id="name" name="name"
 					placeholder="이름">
-			</div>
+			<span class="searchclear" style="display: none;" id="pwcheckclear">X</span></div></div>
 			<div>
 				<input type="text" class="textBox" id="phone" name="phone"
 					placeholder="휴대폰번호 (-없이)">
-			</div>
+			<span class="searchclear" style="display: none;" id="pwcheckclear">X</span></div>
 			<div style="text-align: center;">
 				<input type="button" class="btn btn-outline-success" id="search"
 					value="찾기"> <input type="button"
@@ -282,6 +283,17 @@
 					$("#phoneinfo").text("");
 				}
 			})
+			//삭제버튼
+			$(".search-input").on("keyup", function(){
+				$(this).siblings(".searchclear").show();
+			});
+			//text 비우기
+			$(".searchclear").click(function(){
+			  	$(this).siblings(".search-input").val("");
+			  	$(this).siblings(".search-input").focus();
+			  	$(this).hide();
+			  	//$(this).parent().parent().find(".check").css("display","none");
+			});			
 		</script>
 
 		<!----------------------------------- footer ----------------------------------->
