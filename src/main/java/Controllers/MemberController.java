@@ -96,6 +96,14 @@ public class MemberController extends HttpServlet {
 				String name = request.getParameter("name"); //닉네임
 				String email = request.getParameter("email");
 				String birthday = request.getParameter("birthday"); //(생년없이)월일
+				
+				if (email == null || birthday == null) {
+					request.getSession().invalidate();
+					response.sendRedirect("/index.jsp");
+				}
+				
+				
+				
 				//String token = request.getParameter("token");
 				System.out.println("임의id:"+id+" 닉:"+name+" 메일:"+email+" 생일:"+birthday);
 				PrintWriter pw = response.getWriter();
