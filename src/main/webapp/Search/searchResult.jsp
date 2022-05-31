@@ -344,7 +344,7 @@
 									<div class="col-2 form-check" style="padding-left: 5%;">
 										<input class="form-check-input" type="radio" value="5"
 											id="flexCheckDefault" name="grade"> <label
-											class="form-check-label"> 5 </label>
+											class="form-check-label"tt> 5 </label>
 									</div>
 
 									<!-- 도수 -->

@@ -13,7 +13,7 @@
 <body>
 	<jsp:include page="common/header.jsp" />
 	<div class='boardBody'>
-		<div class='boardDiv'>
+		<div class='boardDiv' style="font-family: 'Hahmlet', serif;">
 			<div class='btn_under'>
 				
 				<button class='down_board' onclick="location.href='boardList.board?type=3&cpage=1'">인기글모아보기</button>
@@ -32,8 +32,8 @@
 						onclick="if(${loginID != null}) {location.href='/boardAddPage.board'}else{alert('로그인 후 작성할 수 있습니다')};">글쓰기</button>
 				</div>
 			</div>
-			<div class='boardTable'>
-				<div class="boardlist2 row col-12 listoff">
+			<div class='boardTable' style="font-family: 'Hahmlet', serif;">
+				<div class="boardlist2 row col-12 listoff" style="margin: 0%">
 					<div class="col-lg-2 col-sm-3">번호</div>
 					<div class="col-lg-2 col-sm-3">작성자</div>
 					<div class="col-lg-2 col-sm-3">제목</div>
@@ -47,7 +47,7 @@
 						</c:when>
 						<c:otherwise>
 							<c:forEach var="list" items="${list}">
-									<div class='boardSelect boardlist row col-12' data-id='${list.boardNum}'>
+									<div class='boardSelect boardlist row col-12' data-id='${list.boardNum}' style="margin:0%;">
 										<div class="col-lg-2 col-sm-3">${list.boardNum}</div>
 										<div class="col-lg-2 col-sm-3">${list.writer}</div>
 										<div class="boardTitleTd col-lg-2 col-sm-3">${list.title}</div>
