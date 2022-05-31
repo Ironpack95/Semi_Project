@@ -291,8 +291,13 @@
 								onclick="if(${loginID != null}) {location.href='/boardLike.board?num=${board.boardNum}'}else{alert('로그인 후 추천할 수 있습니다')};">
 							</c:otherwise>
 						</c:choose>
+						
+						<c:if test="${ loginID != 'admin' and loginID != board.writer}">
 						<input type="button" class="like_btn" value="신고하기"
 							onclick="if(${loginID != null}) {if(${board.boardSatus} == 2){alert('이미 신고된 게시글 입니다.')}else{if(confirm('정말로 신고하시겠습니까?')){location.href='/boardSet.board?num=${board.boardNum}&stat=2'}}}else{alert('로그인 후 신고할 수 있습니다')};">
+						</c:if>
+						
+						
 						<c:if test="${board.writer == loginID}">
 							<div style="position: absolute; right: 0px; top: 0px;">
 								<input type="button" class="like_btn" value="수정하기"

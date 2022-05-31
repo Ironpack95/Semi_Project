@@ -221,7 +221,7 @@
 	  		<c:when test="${loginID!=null && empty kakaoemail}">
 				<div id="btn" style="text-align: center;padding-bottom: 20px;">
 				
-				<c:if test="${! loginID eq 'admin'}">
+				<c:if test="${ loginID != 'admin'}">
 				<button type="button" class="btn btn-danger" id="ok">확인</button>
 				</c:if>
 

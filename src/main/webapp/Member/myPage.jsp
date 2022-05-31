@@ -247,7 +247,7 @@
 								<td>${i.address2}
 							</tr>
 							<tr>
-								<c:if test="${! loginID eq 'admin'}">
+								<c:if test="${ loginID != 'admin'}">
 								<td colspan=2 style="" id="btns">
 									<button type="button" class="btn btn-outline-success" id="update">수정</button>
 								</td>
