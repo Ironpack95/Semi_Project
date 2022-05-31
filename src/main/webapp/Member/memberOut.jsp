@@ -238,9 +238,15 @@
 		<!----------------------------------------script------------------------------------>
 
 		<script>
-			$("#ok").on("click", function() {
-				location.href = "/memberout.member"
-			})
+		$("#ok").on("click", function() {
+			let result = confirm("정말 탈퇴하시겠습니까?");
+			if(result){
+				alert("탈퇴 완료되었습니다.");
+			location.href = "/memberout.member"
+			}else{
+				
+			}
+		})
 
 			function secession() {
 				Kakao.init('a90276ed357ed7ce1c45d0863f399e1d');
