@@ -14,7 +14,7 @@
 	<jsp:include page="common/header.jsp" />
 	<div class='boardBody'>
 		<div class='boardDiv' style="font-family: 'Hahmlet', serif;">
-			<div class='btn_under pc'>
+			<div class='btn_under pc' style="margin-bottom: 5px;">
 				
 				<button class='down_board' onclick="location.href='boardList.board?type=3&cpage=1'">인기글모아보기</button>
 				<button class='down_board'
