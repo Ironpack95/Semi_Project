@@ -26,8 +26,7 @@
 					<img>
 				</div>
 				<div id='alcohoContent'>
-					<span id='alcohoName'>술 이름</span><br> <span id='alcohoExp'>술
-						설명</span>
+					<span id='alcohoName'>술 이름</span><br> <span id='alcohoExp'>술설명</span>
 				</div>
 				<input type="hidden" class='prodcutNum' name='prodcutNum'>
 				<button class='type_change' style="position: absolute; right: 0px; bottom: 0px; color: white; background-color: #2c6246; border: 0px;" type="button">변경하기</button>
