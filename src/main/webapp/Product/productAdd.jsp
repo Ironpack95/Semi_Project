@@ -522,9 +522,18 @@
             console.log(adress2);
             let smry = $("#smry").val();
             console.log(smry);
-
+            
+            // file
+            let fileVal = $("#inputGroupFile02").val();
+            
+            let maxSize = 10 * 1024 * 1024; // 10MB
+           	let fileSize = $("#inputGroupFile02")[0].files[0].size;
+            
+            
+     
+            
             // regex
-            let regexPname = /^[ㄱ-ㅎ|ㅏ-ㅣ|가-힣0-9a-zA-Z\s]{1,20}$/gs;
+            let regexPname = /^[ㄱ-ㅎ|ㅏ-ㅣ|가-힣0-9a-zA-Z]{1}[ㄱ-ㅎ|ㅏ-ㅣ|가-힣0-9a-zA-Z\s]{1,19}$/gs;
             let regexSname = /^[ㄱ-ㅎ|ㅏ-ㅣ|가-힣0-9a-zA-Z]{1,20}$/gs;
             let regexPrice = /^[0-9]{1,6}$/g;
             let regexAbv = /^[0-9]{1,2}.?[0-9]{0,5}$/g;
@@ -533,7 +542,7 @@
 
             // 상품명 검사
             if (!(regexPname.test(product_name))) {
-                alert("특수문자는 입력이 안 됩니다.");
+                alert("특수문자 제외 1~20글자");
                 $("#product_name").val('')
                 $("#product_name").focus();
 
@@ -561,8 +570,8 @@
             // 알콜 도수 검사
             if (!(regexAbv.test(abv))) {
                 alert("정수 : 1~99 | 소수 : 다섯째까지");
-                $("#avb").val('')
-                $("#avb").focus();
+                $("#abv").val('')
+                $("#abv").focus();
 
                 return false
             }
@@ -580,13 +589,35 @@
             }
             
             // 평점 검사
-            if (!(regexGrade.test(grade))) {
-                alert("1~5까지만 가능합니다.");
+            if (!(regexGrade.test(grade) && parseFloat(grade) <= 5)) {
+                alert("1~5사이 소수점 2번째까지 가능합니다.");
                 $("#grade").val('');
                 $("#grade").focus();
 
                 return false
             }
+            
+            // 파일 확장자 체크
+            if (fileVal != ""){
+            	let ext = fileVal.split('.').pop().toLowerCase();
+            	
+            	if($.inArray(ext, ['jpg', 'jpeg', 'png']) == -1){
+            		alert('jpg, jpeg, png 파일만 업로드 할 수 있습니다.');
+            		
+            		return false;
+            		
+            	}
+            	
+            }
+            
+            // 파일 용량 체크
+            if(fileSize > maxSize){
+            	alert("첨부파일 사이즈는 10MB 이내로 등록 가능합니다.");
+            	
+            	return false;
+            }
+            
+
 
         });
 

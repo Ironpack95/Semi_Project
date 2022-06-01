@@ -108,7 +108,7 @@ public class SearchDAO {
 	public List<SearchDTO> searchDetail(boolean[] searchType, String[] alcholArr, String[] areaArr, int grade, float abv, String sql) throws Exception{
 
 		boolean[] t = searchType;
-
+		
 		try(
 				Connection con = this.getConnection();
 				PreparedStatement pstat = con.prepareStatement(sql);
@@ -254,7 +254,7 @@ public class SearchDAO {
 			else if(t[3] && t[4]) { 
 				pstat.setInt(1, grade);
 				pstat.setInt(2, grade);
-				pstat.setFloat(2, abv);
+				pstat.setFloat(3, abv);
 
 			}
 			// 조건 12 (1)
@@ -284,8 +284,7 @@ public class SearchDAO {
 			}
 			// 조건 15 (4)
 			else if( t[4] ) {
-				pstat.setFloat(1, abv);;
-
+				pstat.setFloat(1, abv);
 			}
 
 			try(

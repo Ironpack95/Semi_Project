@@ -116,7 +116,9 @@ public class ManagerDAO {
 
 		if (startNavi == 1) {
 			preNavi = false; // 시작이 1이 되면 안보여야 됨
-		} else if (endNavi >= pageTotalCount) {
+		} 
+		// 제일 큰 실수
+		if (endNavi == pageTotalCount) {
 			nextNavi = false;
 		}
 		

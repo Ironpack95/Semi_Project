@@ -64,19 +64,26 @@
 								data-bs-toggle="dropdown" aria-expanded="false"> 우리술 정보 </a>
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-									<li><a class="dropdown-item" href="/productA10.ProductController?cpage=1">막걸리</a></li>
-									<li><a class="dropdown-item" href="/productA20.ProductController?cpage=1">전통 소주</a></li>
-									<li><a class="dropdown-item" href="/productA30.ProductController?cpage=1">약주</a></li>
-									<li><a class="dropdown-item" href="/productA40.ProductController?cpage=1">과실주</a></li>
-									<li><a class="dropdown-item" href="/productA50.ProductController?cpage=1">리큐르</a></li>
+									<li><a class="dropdown-item"
+										href="/productA10.ProductController?cpage=1">막걸리</a></li>
+									<li><a class="dropdown-item"
+										href="/productA20.ProductController?cpage=1">전통 소주</a></li>
+									<li><a class="dropdown-item"
+										href="/productA30.ProductController?cpage=1">약주</a></li>
+									<li><a class="dropdown-item"
+										href="/productA40.ProductController?cpage=1">과실주</a></li>
+									<li><a class="dropdown-item"
+										href="/productA50.ProductController?cpage=1">리큐르</a></li>
 
 									<li>
 										<hr class="dropdown-divider">
 									</li>
-									<li><a class="dropdown-item" href="/list.ProductController?cpage=1">전체보기</a></li>
+									<li><a class="dropdown-item"
+										href="/list.ProductController?cpage=1">전체보기</a></li>
 								</ul></li>
 
-							<li class="d-none d-lg-block nav-item"><a href="/Search/search.jsp"
+							<li class="d-none d-lg-block nav-item"><a
+								href="/Search/search.jsp"
 								class="nav-link mx-0 mx-0 mx-md-0 mx-lg-3">우리술 검색</a></li>
 
 
@@ -148,7 +155,7 @@
 									</ul>
 								</div>
 							</c:when>
-							
+
 							<c:when test="${kakaoemail !=null}">
 								<div class="d-none d-lg-inline btn-group">
 									<button type="button" class="btn btn-warning dropdown-toggle"
@@ -161,17 +168,22 @@
 									</ul>
 								</div>
 							</c:when>
-														
+
 							<c:otherwise>
-								<button id="loginBtn" type="button" class="mx-1 d-none d-lg-inline btn btn-warning navbar-btn">로그인</button>
-								<button id="joinBtn" type="button" class="mx-1 d-none d-lg-inline btn btn-dark navbar-btn">회원가입</button>
-								
+								<button id="loginBtn" type="button"
+									class="mx-1 d-none d-lg-inline btn btn-warning navbar-btn">로그인</button>
+								<button id="joinBtn" type="button"
+									class="mx-1 d-none d-lg-inline btn btn-dark navbar-btn">회원가입</button>
+
 								<script>
-									$("#loginBtn").on("click",function(){
-										location.href="/Member/loginView.jsp";
-									})
-									$("#joinBtn").on("click",function(){
-										location.href="/Member/joinView.jsp";
+									$("#loginBtn")
+											.on(
+													"click",
+													function() {
+														location.href = "/Member/loginView.jsp";
+													})
+									$("#joinBtn").on("click", function() {
+										location.href = "/Member/joinView.jsp";
 									})
 								</script>
 							</c:otherwise>
@@ -203,7 +215,7 @@
 
 					</ul>
 				</div>
-				
+
 				<div class="col-12 d-lg-none" id="navmenu">
 					<nav class="nav nav-pills nav-fill">
 						<a class="nav-link" href="/add.ProductController">상품 등록</a> <a
@@ -212,19 +224,21 @@
 
 					</nav>
 				</div>
-				
+
 				<div class="col-12 col-lg-9">
 
 					<span id="title">
-						<h3 class="mt-3 d-none d-lg-block" style="padding-left: 25px;">게시글 관리</h3>
+						<h3 class="mt-3 d-none d-lg-block" style="padding-left: 25px;">게시글
+							관리</h3>
 					</span>
 
 					<div class="container">
 						<div class="row">
 
 
-							<form action="/delAcl.manager">
-								<div class="col-12 mb-2 mt-2" style="font-size:1rem;">신고된 게시글 (총 게시물 : ${count} 건)</div>
+							<form action="/delAcl.manager" id="del">
+								<div class="col-12 mb-2 mt-2" style="font-size: 1rem;">신고된
+									게시글 (총 게시물 : ${count} 건)</div>
 
 
 								<div class="col-12">
@@ -233,7 +247,9 @@
 
 										<thead class="table-danger" style="text-align: center;">
 											<th>
-											<td colspan="1">#</td>
+											<td colspan="1">
+												<input type="checkbox" value="${i.board_num}" id="all" class="delCheck">
+											</td>
 											<td colspan="6">제목</td>
 											<td colspan="2">작성자</td>
 											<td colspan="3">날짜</td>
@@ -247,7 +263,7 @@
 												<th>
 												<td colspan="1"><input type="checkbox"
 													value="${i.board_num}" id="flexCheckIndeterminate"
-													name="del"></td>
+													name="del" class="delCheck"></td>
 												<td colspan="6"><a
 													href="/boardSelect.board?num=${i.board_num}"> ${ i.title }
 												</a></td>
@@ -264,7 +280,7 @@
 										<button type="submit" class="btn btn-outline-danger">삭제</button>
 
 									</div>
-									</div>
+								</div>
 							</form>
 
 							<div class="col-12 mb-2 mt-1">
@@ -283,44 +299,83 @@
 		</div>
 
 
-	<!--//////////////////////////////////////////////////////////////////////////////////-->
-	<hr>
-	<footer class="site-footer">
+		<!--//////////////////////////////////////////////////////////////////////////////////-->
+		<hr>
+		<footer class="site-footer">
 
-		<div class="container">
-			<div class="row">
-				<div class="d-none d-lg-block col-md-8 col-sm-6 col-xs-12">
-					<p class="copyright-text">
-						Copyright &copy; 2022 All Rights Reserved by <a href="#"
-							style="text-decoration: none;">아이코올</a>.
-					</p>
-				</div>
+			<div class="container">
+				<div class="row">
+					<div class="d-none d-lg-block col-md-8 col-sm-6 col-xs-12">
+						<p class="copyright-text">
+							Copyright &copy; 2022 All Rights Reserved by <a href="#"
+								style="text-decoration: none;">아이코올</a>.
+						</p>
+					</div>
 
-				<div class="d-lg-none col-md-8 col-sm-6 col-xs-12">
-					<p class="copyright-text">Copyright &copy;</p>
-					<p class="copyright-text">
-						2022 All Rights Reserved by <a href="#"
-							style="text-decoration: none;">아이코올</a>.
-					</p>
-				</div>
+					<div class="d-lg-none col-md-8 col-sm-6 col-xs-12">
+						<p class="copyright-text">Copyright &copy;</p>
+						<p class="copyright-text">
+							2022 All Rights Reserved by <a href="#"
+								style="text-decoration: none;">아이코올</a>.
+						</p>
+					</div>
 
-				<div class="col-md-4 col-sm-6 col-xs-12 my-3 my-lg-0">
-					<ul class="social-icons">
-						<li><a class="facebook" href="#"><i
-								class="fa fa-facebook"></i></a></li>
-						<li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
-						<li><a class="dribbble" href="#"><i
-								class="fa fa-dribbble"></i></a></li>
-						<li><a class="linkedin" href="#"><i
-								class="fa fa-linkedin"></i></a></li>
-					</ul>
+					<div class="col-md-4 col-sm-6 col-xs-12 my-3 my-lg-0">
+						<ul class="social-icons">
+							<li><a class="facebook" href="#"><i
+									class="fa fa-facebook"></i></a></li>
+							<li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+							<li><a class="dribbble" href="#"><i
+									class="fa fa-dribbble"></i></a></li>
+							<li><a class="linkedin" href="#"><i
+									class="fa fa-linkedin"></i></a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
-		</div>
-	</footer>
+		</footer>
 
 	</div>
 
+	<script>
+		$("#del").submit(function() {
+
+			let num = $("input:checkbox[name='del']:checked").length;
+
+			if (num == 0) {
+				alert("삭제할 글을 선택하세요");
+				return false;
+			}
+			;
+
+		});
+		
+		$("#all").on("change", function(){
+			
+			let all = $("#all").prop("checked");
+			
+		    if(all == true){
+		        
+		        $(".delCheck").prop("checked", true);
+		        
+		        }else{
+		        
+		        $(".delCheck").prop("checked", false);
+		        
+		        }
+		 
+			
+		});
+		
+	    $(".delCheck").change(function(){
+	    	
+	        if($("input[name='del']:checked").length == $("input[name='del']").length){
+	            $("#all").prop("checked", true);
+	        } else{
+	            $("#all").prop("checked", false);
+	        }
+	    });
+	</script>
 
 </body>
 

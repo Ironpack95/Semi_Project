@@ -21,11 +21,9 @@
 					onclick="location.href='boardList.board?type=0&cpage=1'">전체
 					보기</button>
 				<button class='down_board'
-					onclick="location.href='boardList.board?type=1&cpage=1'">조회
-					순</button>
+					onclick="location.href='boardList.board?type=1&cpage=1'">조회순</button>
 				<button class='down_board'
-					onclick="location.href='boardList.board?type=2&cpage=1'">최근
-					작성 순</button>
+					onclick="location.href='boardList.board?type=2&cpage=1'">최근 작성 순</button>
 				<!-- <button class='down_board'>태그별 보기</button> -->
 				<div class='btn_write'>
 					<button class='down_write'
@@ -89,6 +87,7 @@
 				<button class='boardSearchBtn'>검색하기</button>
 				
 			</form>
+	<jsp:include page="common/footer.jsp" />
 		</div>
 	</div>
 	<script>
@@ -119,6 +118,5 @@
 			$(".orderSelect").val(type).prop("selected",true);
 		}
 	</script>
-	<jsp:include page="common/footer.jsp" />
 </body>
 </html>

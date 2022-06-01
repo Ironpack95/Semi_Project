@@ -291,8 +291,13 @@
 								onclick="if(${loginID != null}) {location.href='/boardLike.board?num=${board.boardNum}'}else{alert('로그인 후 추천할 수 있습니다')};">
 							</c:otherwise>
 						</c:choose>
+						
+						<c:if test="${ loginID != 'admin' and loginID != board.writer}">
 						<input type="button" class="like_btn" value="신고하기"
 							onclick="if(${loginID != null}) {if(${board.boardSatus} == 2){alert('이미 신고된 게시글 입니다.')}else{if(confirm('정말로 신고하시겠습니까?')){location.href='/boardSet.board?num=${board.boardNum}&stat=2'}}}else{alert('로그인 후 신고할 수 있습니다')};">
+						</c:if>
+						
+						
 						<c:if test="${board.writer == loginID}">
 							<div style="position: absolute; right: 0px; top: 0px;">
 								<input type="button" class="like_btn" value="수정하기"
@@ -317,7 +322,7 @@
 		
 								<div id="reply_box" class="row col-lg-12">
 									<div class="col-lg-10 col-md-8 col-xs-6" style="resize: none;">
-										<textarea placeholder="댓글 내용을 입력하세요." name='content'
+										<textarea id="textadd" placeholder="댓글 내용을 입력하세요." name='content'
 											class="textarea"></textarea>
 									</div>
 									<div class="rebt col-lg-2 col-md-4 col-xs-6"
@@ -347,14 +352,16 @@
 									action="modify.board?pseq=${board.boardNum}&seq=${i.replySeq}"
 									method="post" id="modifyFrm" enctype="multipart/form-data">
 									
-									<div class="reply_view">${i.writer}|<fmt:formatDate pattern="yy년MM월dd일 HH시mm분" value="${i.wirteDate}"/></div>
+									<div class="reply_view" style="margin-top: 3%; margin-bottom:3%;">${i.writer}|<fmt:formatDate pattern="yy년MM월dd일 HH시mm분" value="${i.wirteDate}"/></div>
 									
 									<div class="head6">
 									
-										<div class="reply_contents" style="border: none;">${i.cotents}</div>
+										<div class="reply_contents" style="border: none; overflow-y:auto;">
+											<pre style="font-family: 'Hahmlet', serif;">${i.cotents}</pre>
+										</div>
 										
 										<input name='contents' value="${i.cotents}"
-											style="display: none; width: 50%;"><br>
+											style="display: none; width: 50%;">
 											
 										 <input type="hidden" id="contentsInput"
 											name="reply_contents">
@@ -432,6 +439,17 @@
 	<!-- 댓글 관련 스크립트 작성 -->
 
 	<script>
+	
+		$("#reply").on("click", function() {
+		
+			let text = $("#textadd").val();
+			if (text.replace(/\s|　/gi, "").length == 0){
+				alert("댓글을 입력해 주세요.");
+				return false;
+			}
+		})
+		
+	
 		$(".modify").on("click", function () {
 
 			$(this).siblings(".reply_contents").next().show();

@@ -28,7 +28,8 @@
 	integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 	crossorigin="anonymous"></script>
 
-<script src="https://kit.fontawesome.com/7f0130da7d.js" crossorigin="anonymous"></script>
+<script src="https://kit.fontawesome.com/7f0130da7d.js"
+	crossorigin="anonymous"></script>
 
 <title>우리술夜</title>
 </head>
@@ -62,19 +63,26 @@
 								data-bs-toggle="dropdown" aria-expanded="false"> 우리술 정보 </a>
 								<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-									<li><a class="dropdown-item" href="/productA10.ProductController?cpage=1">막걸리</a></li>
-									<li><a class="dropdown-item" href="/productA20.ProductController?cpage=1">전통 소주</a></li>
-									<li><a class="dropdown-item" href="/productA30.ProductController?cpage=1">약주</a></li>
-									<li><a class="dropdown-item" href="/productA40.ProductController?cpage=1">과실주</a></li>
-									<li><a class="dropdown-item" href="/productA50.ProductController?cpage=1">리큐르</a></li>
+									<li><a class="dropdown-item"
+										href="/productA10.ProductController?cpage=1">막걸리</a></li>
+									<li><a class="dropdown-item"
+										href="/productA20.ProductController?cpage=1">전통 소주</a></li>
+									<li><a class="dropdown-item"
+										href="/productA30.ProductController?cpage=1">약주</a></li>
+									<li><a class="dropdown-item"
+										href="/productA40.ProductController?cpage=1">과실주</a></li>
+									<li><a class="dropdown-item"
+										href="/productA50.ProductController?cpage=1">리큐르</a></li>
 
 									<li>
 										<hr class="dropdown-divider">
 									</li>
-									<li><a class="dropdown-item" href="/list.ProductController?cpage=1">전체보기</a></li>
+									<li><a class="dropdown-item"
+										href="/list.ProductController?cpage=1">전체보기</a></li>
 								</ul></li>
 
-							<li class="d-none d-lg-block nav-item"><a href="/Search/search.jsp"
+							<li class="d-none d-lg-block nav-item"><a
+								href="/Search/search.jsp"
 								class="nav-link mx-0 mx-0 mx-md-0 mx-lg-3">우리술 검색</a></li>
 
 
@@ -122,8 +130,8 @@
 						</ul>
 						<form action="/mini.search" class="d-flex">
 							<input id="search_input" class="form-control mx-1" type="search"
-								placeholder="원하시는 술을 검색하세요" aria-label="Search" name="search_text"
-								required>
+								placeholder="원하시는 술을 검색하세요" aria-label="Search"
+								name="search_text" required>
 							<button class="btn btn-outline-success me-1" type="submit"
 								id="search_btn">
 								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -172,14 +180,14 @@
 
 
 
-    <!----------------------------------- Content ----------------------------------->
-    <div class="row" id="mypage">
-      <div class="col-12" id="mypage_text">
-          <h1>게시판 모아보기</h1>
-      </div>
-    </div>
-    <div class="row" id="content">
-     <div class="col-12 col-md-3 d-none d-lg-block" id="mypage list">
+		<!----------------------------------- Content ----------------------------------->
+		<div class="row" id="mypage">
+			<div class="col-12" id="mypage_text">
+				<h1>게시판 모아보기</h1>
+			</div>
+		</div>
+		<div class="row" id="content">
+			<div class="col-12 col-md-3 d-none d-lg-block" id="mypage list">
 				<ul class="list-group list-group-flush">
 					<a href="/mypage.member"
 						class="list-group-item list-group-item-action">회원정보 수정</a>
@@ -192,61 +200,60 @@
 
 			</div>
 			<div class="col-12 d-lg-none" id="navmenu">
-			<nav class="nav nav-pills nav-fill" >
-  				<a class="nav-link" href="/mypage.member">회원정보 수정</a>
- 				<a class="nav-link" href="/Member/memberOut.jsp">회원탈퇴</a>
-  				<a class="nav-link" href="/myboard.board?cpage=1">게시글 모아보기</a>
- 
-			</nav>
+				<nav class="nav nav-pills nav-fill">
+					<a class="nav-link" href="/mypage.member">회원정보 수정</a> <a
+						class="nav-link" href="/Member/memberOut.jsp">회원탈퇴</a> <a
+						class="nav-link" href="/myboard.board?cpage=1">게시글 모아보기</a>
+
+				</nav>
 			</div>
-    <div class="col-12 col-md-9" id="myboard list">
-    	<table class="table table-hover">
 
-										<thead class="table-success " style="text-align: center;">
-											<th>
-											<td colspan="1">#</td>
-											<td colspan="6">제목</td>
-											<td colspan="2">작성자</td>
-											<td colspan="3">날짜</td>
-											</th>
-										</thead>
+			<div class="col-12 col-lg-9" id="myboard list">
+				<table class="table table-hover">
 
-										<!-- 반복문 돌릴 예정 : board_num이 value임 -->
-										<c:forEach var="i" items="${list}">
+					<thead class="table-success " style="text-align: center;">
+						<th>
+						<td colspan="1">#</td>
+						<td colspan="6">제목</td>
+						<td colspan="2">작성자</td>
+						<td colspan="3">날짜</td>
+						</th>
+					</thead>
 
-											<tbody style="text-align: center;">
-												<th>
-												<td colspan="1"><a
-													href="/boardSelect.board?num=${i.board_num}"
-													style="color:black;text-decoration-line: none;">
-													${i.board_num}</a>
-												</td>
-												<td colspan="6"><a
-													href="/boardSelect.board?num=${i.board_num}"
-													style="color:black;text-decoration-line: none;"> ${ i.title }
-												</a></td>
-												<td colspan="2">
-												<a
-													href="/boardSelect.board?num=${i.board_num}"
-													style="color:black;text-decoration-line: none;">${ i.writer }</a></td>
-												<td colspan="3"><a
-													href="/boardSelect.board?num=${i.board_num}"
-													style="color:black;text-decoration-line: none;">${ i.formedDate }</a></td>
-												</th>
-											</tbody>
+					<!-- 반복문 돌릴 예정 : board_num이 value임 -->
+					<c:forEach var="i" items="${list}">
 
-										</c:forEach>
-									</table>
-    </div>
-    						<div class="col-12 mb-2 mt-1">
-								<nav aria-label="Page navigation example">
-									<ul class="pagination justify-content-center">${navi}</ul>
-								</nav>
-							</div>
-    </div>
-    
+						<tbody style="text-align: center;">
+							<th>
+							<td colspan="1"><a
+								href="/boardSelect.board?num=${i.board_num}"
+								style="color: black; text-decoration-line: none;">
+									${i.board_num}</a></td>
+							<td colspan="6"><a
+								href="/boardSelect.board?num=${i.board_num}"
+								style="color: black; text-decoration-line: none;"> ${ i.title }
+							</a></td>
+							<td colspan="2"><a
+								href="/boardSelect.board?num=${i.board_num}"
+								style="color: black; text-decoration-line: none;">${ i.writer }</a></td>
+							<td colspan="3"><a
+								href="/boardSelect.board?num=${i.board_num}"
+								style="color: black; text-decoration-line: none;">${ i.formedDate }</a></td>
+							</th>
+						</tbody>
 
-	
+					</c:forEach>
+				</table>
+			<div class="col-12 mb-2 mt-1">
+				<nav aria-label="Page navigation example">
+					<ul class="pagination justify-content-center">${navi}</ul>
+				</nav>
+			</div>
+			</div>
+		</div>
+
+
+
 
 		<!----------------------------------- footer ----------------------------------->
 

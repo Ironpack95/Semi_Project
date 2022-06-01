@@ -234,7 +234,7 @@
 					</div>
 					<div>
 						<input type="text" id="birthday" name="birthday"
-							placeholder="990322" class="join-input">
+							placeholder="ex)990322" class="join-input">
 					<span class="searchclear" style="display: none;">X</span></div>
 					<div class="check" id="birthdayinfo"></div>
 				</div>
@@ -254,7 +254,7 @@
 					</div>
 					<div>
 						<input type="text" id="phone" name="phone"
-							placeholder="01012349876" class="join-input">
+							placeholder="01012349876(-없이)" class="join-input">
 					<span class="searchclear" style="display: none;">X</span></div>
 					<div class="check" id="phoneinfo"></div>
 				</div>
@@ -336,20 +336,23 @@
 	//삭제버튼
 	$(".join-input").on("keyup", function(){
 		$(this).siblings(".searchclear").show();
+		if($(this).val().replace(/\s|　/gi, "").length == 0){
+			$(this).siblings(".searchclear").hide();
+		}
 	});
 	//text 비우기
 	$(".searchclear").click(function(){
+	  	$(this).parent().parent().find(".check").text("");
 	  	$(this).siblings(".join-input").val("");
 	  	$(this).siblings(".join-input").focus();
 	  	$(this).hide();
-	  	$(this).parent().parent().find(".check").css("display","none");
 	});
 	//비번 재확인용 삭제버튼
 	$("#pwcheckclear").click(function(){
 	  	$(this).siblings(".join-input").val("");
 	  	$(this).siblings(".join-input").focus();
 	  	$(this).hide();
-	  	$(this).parent().parent().find(".check").css("display","none");
+	  	$(this).parent().parent().find(".check").text("");
 	});
 			
 	//이름 유효성 검사
@@ -364,6 +367,9 @@
 		} else{
 			$("#nameinfo").text("");
 		}
+		if(name.replace(/\s|　/gi, "").length == 0){
+			$("#nameinfo").text("");
+		} 
 	})
 	//아이디 유효성 검사
 	$("#id").on("keyup",function(){
@@ -375,7 +381,7 @@
 			$("#idinfo").css("color", "red");
 			$("#idinfo").text("8~13자(영문 소문자,숫자,_)를 입력하세요.");
 			$("#id").focus();
-		} else{
+		} else {
 			$.ajax({
 				url:"/duplCheck.member",
 				type:"post",
@@ -385,14 +391,18 @@
 				if(result == true){
 					$("#idinfo").text("이미 사용중인 아이디입니다.");
 					$("#idinfo").css("color", "red");
+					$("#join").prop("disabled", true);
 				}else{
 					$("#idinfo").text("사용가능한 아이디입니다.");
 					$("#idinfo").css("color", "dodgerblue");
+					$("#join").prop("disabled", false);
 				}
-			});
+			})
 		}
-
-	})
+		if(id.replace(/\s|　/gi, "").length == 0){
+			$("#idinfo").text("");
+		} 
+	});
 	//비번 유효성 검사
 	$("#pw").on("keyup",function(){
 		let pw = $("#pw").val();
@@ -405,6 +415,9 @@
 		} else{
 			$("#pwinfo").text("");
 		}
+		if(pw.replace(/\s|　/gi, "").length == 0){
+			$("#pwinfo").text("");
+		} 
 	})
 	//비번재확인 유효성 검사
 	$("#pwcheck").on("keyup",function(){
@@ -423,8 +436,11 @@
 			$("#pwcheckinfo").css("color", "red");
 			$("#pwcheckinfo").text("비밀번호가 일치하지 않습니다.");
 		}
+		if(pwcheck.replace(/\s|　/gi, "").length == 0){
+			$("#pwcheckinfo").text("");
+		} 
 	})
-	//생일 유효성 검사(030101 이후 출생부터)
+	//생일 유효성 검사(법이 바뀌어서 030101 이후 출생부터 구매 가능)
 	$("#birthday").on("keyup",function(){
 		let birthday = $("#birthday").val();
 		let birthdayRegex = /^([0][0-3](0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1]))|([3-9][0-9](0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1]))/; //생일 6자리
@@ -436,6 +452,9 @@
 		} else{
 			$("#birthdayinfo").text("");
 		}
+		if(birth.replace(/\s|　/gi, "").length == 0){
+			$("#birthinfo").text("");
+		} 
 	})
 	//이메일 유효성 검사
 	$("#email").on("keyup",function(){
@@ -449,6 +468,9 @@
 		} else{
 			$("#emailinfo").text("");
 		}
+		if(email.replace(/\s|　/gi, "").length == 0){
+			$("#emailinfo").text("");
+		} 
 	})
 	//휴대폰번호 유효성 검사
 	$("#phone").on("keyup",function(){
@@ -461,6 +483,9 @@
 		} else{
 			$("#phoneinfo").text("");
 		}
+		if(phone.replace(/\s|　/gi, "").length == 0){
+			$("#phoneinfo").text("");
+		} 
 	})		
 	
 	//회원가입 클릭시 유효성 검사+빈값 alert

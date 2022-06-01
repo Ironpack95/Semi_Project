@@ -235,17 +235,35 @@
 	 				
 	 				//아이디나 비번 빈값일 때
 	 				if($("#id").val() ==""||$("#pw").val() == ""){
-	 					alert("아이디 또는 비밀번호를 입력해주세요.");
-	 					return false;
+	 					if($("#id").val() ==""){
+		 					alert("아이디를 입력해주세요.");
+		 					$("#id").val("");
+		 					$("#pw").val("");
+		 					$("#id").focus();
+		 					return false;
+	 					} else if ($("#pw").val() == ""){
+		 					alert("비밀번호를 입력해주세요.");
+		 					$("#id").val("");
+		 					$("#pw").val("");
+		 					$("#id").focus();
+		 					return false;
+	 					}
 	 				//아이디나 비번이 유효성에 맞지 않을 때
 	 				} else if(!idResult||!pwResult){
-	 					if($("#id").val()=="admin"){
+	 					if($("#id").val()=="admin"){ //admin 로그인 확인
 	 						alert("관리자 계정입니다.");
-	 					} else {
-		 					alert("아이디 또는 비밀번호를 형식에 맞게 입력해주세요.");
-		 					$("id").val("");
-		 					$("pw").val("");
-		 					$("id").focus();
+	 					} else if(!idResult) { //아이디가 유효성X
+		 					alert("아이디를 형식에 맞게 입력해주세요.\n아이디는 8~13자(영문 소문자,숫자,_)여야 합니다.");
+		 					$("#id").val("");
+		 					$("#pw").val("");
+		 					$("#id").focus();
+		 					return false;
+	 					} else { //비번 유효성X
+	 						alert("비밀번호를 형식에 맞게 입력해주세요.");
+		 					$("#id").val("");
+		 					$("#pw").val("");
+		 					$("#id").focus();
+	 						return false;
 	 					}
 	 				}
 	 				//아이디나 비번이 유효성은 맞는데 틀렸을 때
@@ -256,11 +274,10 @@
 							data: {id:$("#id").val(), pw:$("#pw").val()}
 	 					}).done(function(resp){
 	 						if(resp=="false"){
-	 							alert("아이디 또는 비밀번호를 잘못 입력했습니다. 입력하신 내용을 다시 확인해주세요.");
-	 							location.href="/Member/loginView.jsp";
+	 							alert("아이디 또는 비밀번호를 잘못 입력했습니다.\n입력하신 내용을 다시 확인해주세요.");
 	 						}
 	 					})
-		 				}
+		 			}
 	 			});
 	 			
 	 			$("#joinBtn_in").on("click",function(){
@@ -301,6 +318,7 @@
 								let name = res.properties.nickname;
 								let email = res.kakao_account.email;
 								let birthday = res.kakao_account.birthday;
+								
 								console.log(accessToken);
 
 								$.ajax({
@@ -317,6 +335,9 @@
 									dataType : "json",
 								}).done(function(resp) {
 									console.log(resp);
+									if(resp.email==null){
+										alert("이메일을 동의해주세요.");
+									}
 								})
 								alert("카카오계정으로 로그인 되었습니다.");
 								location.href = "/index.jsp";

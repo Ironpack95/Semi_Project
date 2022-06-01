@@ -303,6 +303,72 @@
 		</footer>
 
 		<script>
+		//이메일 유효성 검사
+		$("#email").on("keyup",function(){
+			let email = $("#email").val();
+			let emailRegex = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/; //이메일
+			let emailResult = emailRegex.test(email);
+			
+			if(!emailResult){
+				$("#emailinfo").css("color", "red");
+				$("#emailinfo").text("이메일 형식에 맞게 작성해주세요.");
+			} else{
+				$("#emailinfo").text("");
+			}
+		})
+		//휴대폰번호 유효성 검사
+		$("#phone").on("keyup",function(){
+			let phone = $("#phone").val();
+		    let phoneRegex = /^010[0-9]{8}$/; //핸드폰 11자리
+			let phoneResult = phoneRegex.test(phone);
+			if(!phoneResult){
+				$("#phoneinfo").css("color", "red");
+				$("#phoneinfo").text("휴대폰번호 11자리를 작성해주세요.");
+			} else{
+				$("#phoneinfo").text("");
+			}
+		})		
+		
+		//회원가입 클릭시 유효성 검사+빈값 alert
+		$("#join").on("click", function(){
+			let email = $("#email").val();
+			let emailRegex = /^[a-zA-Z0-9+-\_.]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/; //이메일
+			let emailResult = emailRegex.test(email);
+			if(email.replace(/\s|　/gi, "").length == 0){
+				alert("이메일을 입력해주세요.");
+				return false;
+			}
+			if(!emailResult){
+				alert("이메일을 형식에 맞게 입력해주세요.");
+				return false;
+			}
+			let phone = $("#phone").val();
+		    let phoneRegex = /^010[0-9]{8}$/; //핸드폰 11자리
+			let phoneResult = phoneRegex.test(phone);
+			if(phone.replace(/\s|　/gi, "").length == 0){
+				alert("휴대폰번호를 입력해주세요.");
+				return false;
+			}
+			if(!phoneResult){
+				alert("휴대폰번호를 형식에 맞게 입력해주세요.");
+				return false;
+			}
+			if($("#zipcode").val().replace(/\s|　/gi, "").length == 0){
+				alert("우편번호를 입력해주세요.");
+				return false;
+			}
+			if($("#address1").val().replace(/\s|　/gi, "").length == 0){
+				alert("주소를 입력해주세요.");
+				return false;
+			}
+			if($("#address2").val().replace(/\s|　/gi, "").length == 0){
+				alert("상세주소를 입력해주세요.");
+				return false;
+			}
+			alert("수정이 완료되었습니다!!");
+			});
+		
+		
 			//우편번호
 			function execDaumPostcode() {
 				new daum.Postcode(
