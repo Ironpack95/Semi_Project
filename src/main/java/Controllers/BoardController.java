@@ -168,7 +168,7 @@ public class BoardController extends HttpServlet {
 
 				String id = (String) (request.getSession().getAttribute("loginID"));
 				int result = dao.boardLikeCheck(num,id); 
-				if(result > 1) {
+				if (result >= 1) {
 					// 게시글 좋아요 개수 업데이트 
 					result = dao.boardLikeDelete(num);
 					// 게시글 좋아요 누른 유저 정보 등록

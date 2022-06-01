@@ -271,8 +271,9 @@
 	color: white;
 }
 
-.boardSelect:hover .boardTitleTd {
-	padding-left: 4px;
+.boardSelect:hover{
+	background-color: #008000;
+	color: white;
 }
 
 .col-12 {
@@ -321,7 +322,7 @@
 .product_show_box:hover {
 	cursor: pointer;
 	color: white;
-	background-color: black;
+	background-color: black;	
 }
 
 .product_img {

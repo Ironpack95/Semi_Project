@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="../CSS/summernote/summernote-lite.css">
 </head>
 <body>
-	<form action="/boardUpdateAction.board" method="post"
+	<form id='target' action="/boardUpdateAction.board" method="post"
 		enctype="multipart/form-data">
 		<div class='boardCreateBody'>
 			<h5>우리술 리뷰 수정</h5>
@@ -77,11 +77,12 @@
 					<textarea name="editorTxt" id="editorTxt" rows="20" cols="10"
 						placeholder="내용을 입력해주세요" style="width: 100%">${board.boardExp}
 			        </textarea>
+			        <p class="count"><span>0</span> / 800</p>
 				</div>
 			</div>
 			<hr>
 			<div class='boardLastBtn'>
-				<button type="submit" onclick="submitAdd()">수정</button>
+				<button type="button" onclick="submitAdd()">수정</button>
 				<button type="button"
 					onclick="if(confirm('정말로 취소 하시겠습니까?')){location.href='/boardSelect.board?num=${board.boardNum}'}">취소</button>
 			</div>
@@ -121,7 +122,18 @@
 		})
 
 		function submitAdd() {
+			var ctntarea = document.querySelector("iframe").contentWindow.document.querySelector("iframe").contentWindow.document.querySelector(".se2_inputarea");
+			var text = ctntarea.innerHTML;
+			text = text.replace(/<br>/ig, "");	// br 제거
+			text = text.replace(/&nbsp;/ig, "");// 공백 제거
+			text = text.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/ig, "");	// html 제거
+			if(text.length == 0){
+				alert("내용을 입력하세요.");
+				return false;
+			}
 			oEditors.getById["editorTxt"].exec("UPDATE_CONTENTS_FIELD", []);
+			alert("게시글이 수정되었습니다. :)");
+			$("#target").submit();
 		}
 		
 		 $("input[name='boardScore']:radio").change(function () {
@@ -145,6 +157,25 @@
 			$(".background_box").show();
 			$("body").addClass("active");
 		});
+		
+		setTimeout(function() {
+			var ctntarea = document.querySelector("iframe").contentWindow.document.querySelector("iframe").contentWindow.document.querySelector(".se2_inputarea");
+			ctntarea.addEventListener("keyup", function(e) {
+				var text = this.innerHTML;
+				var lenCheck = 800;
+				text = text.replace(/<br>/ig, "");	// br 제거
+				text = text.replace(/&nbsp;/ig, "");// 공백 제거
+				text = text.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/ig, "");	// html 제거
+				
+				var len = text.length;
+				document.querySelector(".count span").innerHTML = len;
+				
+				if(len > lenCheck) {
+					alert("최대 "+lenCheck+" byte까지 입력 가능합니다.");
+					this.innerHTML = this.innerHTML.substring(0,lenCheck);	
+				}	
+			});	
+		}, 1000)
 	</script>
 
 

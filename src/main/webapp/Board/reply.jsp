@@ -283,8 +283,8 @@
 						<div class="like_cont disnone">추천 : ${board.boardLike}</div>
 						<c:choose>
 							<c:when test="${boardLike > 0}">
-								<input type="button" class="like_btn" value="추천완료">
-								<%-- onclick="if(${loginID != null}) {location.href='/boardLikeDelete.board?num=${board.boardNum}'}else{alert('로그인 후 추천할 수 있습니다')};"> --%>
+								<input type="button" class="like_btn" value="추천취소"
+								onclick="if(${loginID != null}) {location.href='/boardLikeDelete.board?num=${board.boardNum}'}else{alert('로그인 후 추천할 수 있습니다')};">
 							</c:when>
 							<c:otherwise>
 								<input type="button" class="like_btn" value="추천하기"
