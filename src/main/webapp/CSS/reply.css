@@ -1,6 +1,7 @@
 @charset "utf-8";
 @import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@700&family=Song+Myung&display=swap');
 
+
 #logo {
     width: 150px;
     height: auto;
@@ -43,7 +44,10 @@ div>*{
 }
 
 .textarea {
-margin: 3%;
+margin-top: 0%;
+margin-left: 3%;
+margin-right: 3%;
+margin-bottom: 3%;
 padding-left: 3%;
 padding: 1%;
 line-height: 150%;
@@ -423,4 +427,18 @@ ul {
 	    float: left;
 	    margin-right: 8px;
 	}
+}
+
+/*댓글 제한*/
+.textCount{
+	margin-bottom: 0px;
+	font-size : 0.8rem;
+	text-align: right;
+}
+
+.textTotal{
+	margin-bottom: 0px;
+	font-size : 0.8rem;
+	text-align: left;
+	width:auto;
 }

@@ -503,7 +503,28 @@
 	</div>
 
 	<script>
-
+		// 파일 업로드 시, 검수 ( 가로 X 세로 사이즈 체크 ) 
+		$("input[id=inputGroupFile02]").change(function(){
+			
+			let file = this.files[0];
+			let _URL = window.URL || window.webkitURL;
+			let img = new Image();
+			
+			img.src = _URL.createObjectURL(file);
+			img.onload = function(){
+				
+				if(img.width != 419 || img.height != 419){
+						alert("이미지는 가로 419px, 세로 419px만 업로드 가능합니다.")
+						$("input[id=inputGroupFile02]").val("");
+				}
+				
+			};
+			
+			
+		});
+	
+	
+		// 상품 등록 전 전송 전 검수
         $("#product_add").on("submit", function () {
 
             let product_name = $("#product_name").val();
