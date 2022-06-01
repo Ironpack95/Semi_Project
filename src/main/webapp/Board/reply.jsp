@@ -336,8 +336,6 @@
 						
 						</c:choose>
 
-					<div id="top_line"></div>
-
 					<!-- 댓글 출력 및 편집 부분 -->
 					<c:choose>
 					
@@ -352,12 +350,14 @@
 									action="modify.board?pseq=${board.boardNum}&seq=${i.replySeq}"
 									method="post" id="modifyFrm" enctype="multipart/form-data">
 									
-									<div class="reply_view" style="margin-top: 3%; margin-bottom:3%;">${i.writer}|<fmt:formatDate pattern="yy년MM월dd일 HH시mm분" value="${i.wirteDate}"/></div>
+									<div id="top_line"></div>
+										
+									<div class="reply_view" style="margin-top: 2%; margin-bottom:2%;">${i.writer}|<fmt:formatDate pattern="yy년MM월dd일 HH시mm분" value="${i.wirteDate}"/></div>
 									
 									<div class="head6">
 									
-										<div class="reply_contents" style="border: none; overflow-y:auto;">
-											<pre style="font-family: 'Hahmlet', serif;">${i.cotents}</pre>
+										<div class="reply_contents" style="border:none;">
+											<div style="font-family: 'Hahmlet', serif; white-space:pre-line; margin-top: 2%; margin-bottom:2%;">${i.cotents}</div>
 										</div>
 										
 										<input name='contents' value="${i.cotents}"
@@ -371,8 +371,8 @@
 											<c:when test="${loginID == i.writer}">
 											
 												<input type="hidden" class="reply_seq" value="${i.replySeq}">
-												<button class="head6_btn modify" type="button">수정</button>
-												<button class="head6_btn delRbtn" type="button">삭제</button>
+												<button class="head6_btn modify" type="button" style="margin-top: 1%; margin-bottom: 1%;">수정</button>
+												<button class="head6_btn delRbtn" type="button" style="margin-top: 1%; margin-bottom: 1%;">삭제</button>
 												
 											</c:when>
 											
@@ -391,7 +391,7 @@
 					<br>
 					
 					<input type="button" value="목록" class="list_btn" 
-					 style="width: 150px; height: 70px; margin-left: 45%; background-color:#278f59; border:none; color:white;">
+					 style="width: 25%; height: 70px; margin:auto; display:block; background-color:#278f59; border:none; color:white;">
 				
 				</div>
 
