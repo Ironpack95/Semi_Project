@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -77,7 +77,8 @@
 									<li>
 										<hr class="dropdown-divider">
 									</li>
-									<li><a class="dropdown-item" href="/list.ProductController?cpage=1">전체보기</a></li>
+									<li><a class="dropdown-item"
+										href="/list.ProductController?cpage=1">전체보기</a></li>
 								</ul></li>
 
 							<li class="d-none d-lg-block nav-item"><a
@@ -211,55 +212,56 @@
 						</c:choose>
 					</div>
 					<div id="top_line"></div>
-					
 
-					<div style="position:relative; min-height: 80px; font-family: 'Hahmlet', serif;">
+
+					<div
+						style="position: relative; min-height: 80px; font-family: 'Hahmlet', serif;">
 						<div id="head1" class="row.col-12">
-						<div class='product_img'>
-							<img src="/img/productFile/${product.oriName}">
-						</div>
-						<div class='product_name'>
-							${product.product_name}
-						</div>
-						<div class='product_exp'>
-							${product.smry}
-						</div>
-						<c:choose>
-							<c:when test="${board.score == '1'}">
-								<div class='pc'>평점 : ★ (${board.score})</div>
-								<div class='mo'>${board.score}점</div>
-							</c:when>
+							<div class='product_img'>
+								<img src="/img/productFile/${product.oriName}">
+							</div>
+							<div class='product_name'>${product.product_name}</div>
+							<div class='product_exp'>${product.smry}</div>
+							<c:choose>
+								<c:when test="${board.score == '1'}">
+									<div class='pc'>평점 : ★ (${board.score})</div>
+									<div class='mo'>${board.score}점</div>
+								</c:when>
 
-							<c:when test="${board.score == '2'}">
-								<div class='pc'>평점 : ★★ (${board.score})</div>
-								<div class='mo'>${board.score}점</div>
-							</c:when>
+								<c:when test="${board.score == '2'}">
+									<div class='pc'>평점 : ★★ (${board.score})</div>
+									<div class='mo'>${board.score}점</div>
+								</c:when>
 
-							<c:when test="${board.score == '3'}">
-								<div class='pc'>평점 : ★★★ (${board.score})</div>
-								<div class='mo'>${board.score}점</div>
-							</c:when>
+								<c:when test="${board.score == '3'}">
+									<div class='pc'>평점 : ★★★ (${board.score})</div>
+									<div class='mo'>${board.score}점</div>
+								</c:when>
 
-							<c:when test="${board.score == '4'}">
-								<div class='pc'>평점 : ★★★★ (${board.score})</div>
-								<div class='mo'>${board.score}점</div>
-							</c:when>
+								<c:when test="${board.score == '4'}">
+									<div class='pc'>평점 : ★★★★ (${board.score})</div>
+									<div class='mo'>${board.score}점</div>
+								</c:when>
 
-							<c:otherwise>
-								<div class='pc'>평점 : ★★★★★ (${board.score})</div>
-								<div class='mo'>${board.score}점</div>
-							</c:otherwise>
-						</c:choose>
+								<c:otherwise>
+									<div class='pc'>평점 : ★★★★★ (${board.score})</div>
+									<div class='mo'>${board.score}점</div>
+								</c:otherwise>
+							</c:choose>
 						</div>
 						<div id="head2" class="row.col-12">
 							<div class="board_like .col-6">조회수 : ${board.boardCount}</div>
 							<div class="board_writer .col-6">작성자 : ${board.writer}</div>
-							<div class="board_date .col-6">작성일 : <fmt:formatDate pattern="yy년MM월dd일 hh시mm분" value="${board.writeDate}"/></div>
+							<div class="board_date .col-6">
+								작성일 :
+								<fmt:formatDate pattern="yy년MM월dd일 hh시mm분"
+									value="${board.writeDate}" />
+							</div>
 						</div>
 					</div>
 					<div id="top_line"></div>
 
-					
+
 
 					<div id="head3">
 						<div class="board_contents">${board.boardExp}</div>
@@ -269,9 +271,7 @@
 
 
 					<div id="head5" style="position: relative;">
-						<div class="reply_cont disnone">
-							총 댓글 : 0
-						</div>
+						<div class="reply_cont disnone">총 댓글 : 0</div>
 						<c:forEach var="reply" items="${reply}" varStatus="stat">
 							<script class="scriptDelte">
 								$(".reply_cont").text("총 댓글 : ${stat.count}");
@@ -288,16 +288,16 @@
 							</c:when>
 							<c:otherwise>
 								<input type="button" class="like_btn" value="추천하기"
-								onclick="if(${loginID != null}) {location.href='/boardLike.board?num=${board.boardNum}'}else{alert('로그인 후 추천할 수 있습니다')};">
+									onclick="if(${loginID != null}) {location.href='/boardLike.board?num=${board.boardNum}'}else{alert('로그인 후 추천할 수 있습니다')};">
 							</c:otherwise>
 						</c:choose>
-						
+
 						<c:if test="${ loginID != 'admin' and loginID != board.writer}">
-						<input type="button" class="like_btn" value="신고하기"
-							onclick="if(${loginID != null}) {if(${board.boardSatus} == 2){alert('이미 신고된 게시글 입니다.')}else{if(confirm('정말로 신고하시겠습니까?')){location.href='/boardSet.board?num=${board.boardNum}&stat=2'}}}else{alert('로그인 후 신고할 수 있습니다')};">
+							<input type="button" class="like_btn" value="신고하기"
+								onclick="if(${loginID != null}) {if(${board.boardSatus} == 2){alert('이미 신고된 게시글 입니다.')}else{if(confirm('정말로 신고하시겠습니까?')){location.href='/boardSet.board?num=${board.boardNum}&stat=2'}}}else{alert('로그인 후 신고할 수 있습니다')};">
 						</c:if>
-						
-						
+
+
 						<c:if test="${board.writer == loginID}">
 							<div style="position: absolute; right: 0px; top: 0px;">
 								<input type="button" class="like_btn" value="수정하기"
@@ -311,88 +311,99 @@
 					<!--  댓글 입력 창 -->
 					<c:choose>
 						<c:when test="${loginID == null}">
-							<div style="color:#278f59">로그인을 하셔야 댓글을 등록하실 수 있습니다.</div>
+							<div style="color: #278f59">로그인을 하셔야 댓글을 등록하실 수 있습니다.</div>
 						</c:when>
-						
-						<c:otherwise>						
-						 
+
+						<c:otherwise>
+
 							<form
 								action="/add.board?parent_seq=${board.boardNum}&writer=${loginID}"
 								method="post">
-		
+
 								<div id="reply_box" class="row col-lg-12">
-									<div class="col-lg-10 col-md-8 col-xs-6" style="resize: none;">
-										<textarea id="textadd" placeholder="댓글 내용을 입력하세요." name='content'
-											class="textarea"></textarea>
+									<div class="col-lg-10 col-md-8 col-xs-6 pt-1 pt-lg-3" style="resize: none;">
+										<div class="row justify-content-end textCheck_box"
+											style="margin-left: 3%; margin-top: 0%; margin-bottom: 0%; padding-right: 3%;">
+											<p class="textCount col-2 col-lg-1 px-0 ">0자</p>
+											<p class="textTotal col-2 col-lg-1 px-0" style="width: 55px;">
+												/250자</p>
+										</div>
+
+										<textarea id="textadd" placeholder="댓글 내용을 입력하세요."
+											name='content' class="textarea"></textarea>
 									</div>
 									<div class="rebt col-lg-2 col-md-4 col-xs-6"
 										style="margin: auto;">
 										<input id="reply" type="submit" class="reply_btn" value="확인">
 									</div>
 								</div>
-		
+
 							</form>
-						</c:otherwise>
-						
-						</c:choose>
 
-					<div id="top_line"></div>
 
-					<!-- 댓글 출력 및 편집 부분 -->
-					<c:choose>
-					
-						<c:when test="${empty reply}">
-						</c:when>
-						
-						<c:otherwise>
-						
-							<c:forEach var="i" items="${reply}">
-							
-								<form
-									action="modify.board?pseq=${board.boardNum}&seq=${i.replySeq}"
-									method="post" id="modifyFrm" enctype="multipart/form-data">
-									
-									<div class="reply_view" style="margin-top: 3%; margin-bottom:3%;">${i.writer}|<fmt:formatDate pattern="yy년MM월dd일 HH시mm분" value="${i.wirteDate}"/></div>
-									
-									<div class="head6">
-									
-										<div class="reply_contents" style="border: none; overflow-y:auto;">
-											<pre style="font-family: 'Hahmlet', serif;">${i.cotents}</pre>
-										</div>
-										
-										<input name='contents' value="${i.cotents}"
-											style="display: none; width: 50%;">
-											
-										 <input type="hidden" id="contentsInput"
-											name="reply_contents">
-											
-										<c:choose>
-										
-											<c:when test="${loginID == i.writer}">
-											
-												<input type="hidden" class="reply_seq" value="${i.replySeq}">
-												<button class="head6_btn modify" type="button">수정</button>
-												<button class="head6_btn delRbtn" type="button">삭제</button>
-												
-											</c:when>
-											
-										</c:choose>
-										
-									</div>
-									
-								</form>
-								
-							</c:forEach>
-							
 						</c:otherwise>
 
 					</c:choose>
-					
-					<br>
-					
-					<input type="button" value="목록" class="list_btn" 
-					 style="width: 150px; height: 70px; margin-left: 45%; background-color:#278f59; border:none; color:white;">
-				
+
+					<!-- 댓글 출력 및 편집 부분 -->
+					<c:choose>
+
+						<c:when test="${empty reply}">
+						</c:when>
+
+						<c:otherwise>
+
+							<c:forEach var="i" items="${reply}">
+
+								<form
+									action="modify.board?pseq=${board.boardNum}&seq=${i.replySeq}"
+									method="post" id="modifyFrm" enctype="multipart/form-data">
+
+									<div id="top_line"></div>
+
+									<div class="reply_view"
+										style="margin-top: 2%; margin-bottom: 2%;">${i.writer}|<fmt:formatDate
+											pattern="yy년MM월dd일 HH시mm분" value="${i.wirteDate}" />
+									</div>
+
+									<div class="head6">
+
+										<div class="reply_contents" style="border: none;">
+											<div
+												style="font-family: 'Hahmlet', serif; word-break:break-all; white-space: pre-line; margin-top: 2%; margin-bottom: 2%;">${i.cotents}</div>
+										</div>
+
+										<input name='contents' value="${i.cotents}"
+											style="display: none; width: 50%;" class="reply_modiInput"> <input
+											type="hidden" id="contentsInput" name="reply_contents">
+
+										<c:choose>
+
+											<c:when test="${loginID == i.writer}">
+
+												<input type="hidden" class="reply_seq" value="${i.replySeq}">
+												<button class="head6_btn modify" type="button"
+													style="margin-top: 1%; margin-bottom: 1%;">수정</button>
+												<button class="head6_btn delRbtn" type="button"
+													style="margin-top: 1%; margin-bottom: 1%;">삭제</button>
+
+											</c:when>
+
+										</c:choose>
+
+									</div>
+
+								</form>
+
+							</c:forEach>
+
+						</c:otherwise>
+
+					</c:choose>
+
+					<br> <input type="button" value="목록" class="list_btn"
+						style="border-radius:5px; width: 15%; height: 60px; margin: auto; display: block; background-color: #278f59; border: none; color: white;">
+
 				</div>
 
 			</div>
@@ -439,6 +450,40 @@
 	<!-- 댓글 관련 스크립트 작성 -->
 
 	<script>
+		// 댓글 입력시
+		$("#textadd").keyup(function(e) {
+			let content = $(this).val();
+			
+			// 글자수 계산
+			if (content.length == 0 || content == ''){
+				$(".textCount").text("0자");
+			} else {
+				$(".textCount").text(content.length + "자");
+				
+			}
+			
+			// 글자수 제한
+       	 	if($(this).val().length > 250) {
+            	$(this).val($(this).val().substring(0, 250));
+            	alert("250자까지만 입력가능합니다")
+       		 }
+			
+			
+		});
+		
+		// 댓글 수정시
+		$(".reply_modiInput").keyup(function(e) {
+			let content = $(this).val();
+			
+			// 글자수 제한
+       	 	if($(this).val().length > 250) {
+            	$(this).val($(this).val().substring(0, 250));
+            	alert("250자까지만 입력가능합니다")
+       		 }
+			
+			
+		});
+		
 	
 		$("#reply").on("click", function() {
 		

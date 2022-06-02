@@ -2,6 +2,8 @@ package Controllers;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -119,7 +121,7 @@ public class ProductController extends HttpServlet {
 				int maxSize = 1024*1024*1024;
 
 				String savePath = request.getServletContext().getRealPath("thumbnail/");
-
+				
 				System.out.println(savePath);
 
 				File filePath = new File(savePath);
@@ -127,9 +129,10 @@ public class ProductController extends HttpServlet {
 				if(!filePath.exists()) { filePath.mkdir(); };
 
 				MultipartRequest multi = new MultipartRequest(request, savePath, maxSize, "UTF8", new DefaultFileRenamePolicy());
-
+				
 				String oriName = multi.getOriginalFileName("product_img");
 				String sysName = multi.getFilesystemName("product_img");
+				
 
 				System.out.println(oriName);
 				System.out.println(sysName);
