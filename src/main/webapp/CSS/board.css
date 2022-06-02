@@ -271,8 +271,9 @@
 	color: white;
 }
 
-.boardSelect:hover .boardTitleTd {
-	padding-left: 4px;
+.boardSelect:hover{
+	background-color: #008000;
+	color: white;
 }
 
 .col-12 {
@@ -321,7 +322,7 @@
 .product_show_box:hover {
 	cursor: pointer;
 	color: white;
-	background-color: black;
+	background-color: black;	
 }
 
 .product_img {
@@ -354,7 +355,7 @@
 }
 @media (max-width:992px){
 	.listoff{
-	display:none;
+	display:none !important;
 	
 	}
 	.pc {
@@ -384,5 +385,50 @@
 		left: auto;
 		right: 0px !important;
 	}
+	
+	.listTitleDiv {
+		text-align: left;
+		width: 100% !important;
+	}
+	
+	.listWriterDiv {
+		text-align: left;
+		width: 50% !important;
+		display: inline-block;
+		font-size: 13px;
+		color: #999;
+	}
+	
+	.listWriteDateDiv  {
+		text-align: right;
+		display: inline-block;
+		width: 50% !important;
+		font-size: 13px;
+		color: #999;
+	}
+	
+	.boardSelect {
+		margin-bottom: 15px !important;
+	}
+	
+	.boardSearch {
+		width: 50%;
+	}
 }
 
+@media (max-width:385px){
+	.boardSearch {
+		width: 45%;
+		height: 22px;
+	}
+	
+	.boardSearchBtn {
+		font-size: 12px;
+	}
+	
+	.selectType {
+		font-size: 12px;
+	}
+	
+	
+}

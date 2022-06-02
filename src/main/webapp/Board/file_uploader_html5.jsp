@@ -46,7 +46,7 @@ if(!file.exists()) {
 	file.mkdirs();
 }
 String realFileNm = "";
-SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMddHHmmss");
+SimpleDateFormat formatter = new SimpleDateFormat("yyMMddHHmmss");
 String today= formatter.format(new java.util.Date());
 realFileNm = today+UUID.randomUUID().toString() + filename.substring(filename.lastIndexOf("."));
 String rlFileNm = filePath + realFileNm;

@@ -76,7 +76,7 @@
 			<hr>
 
 			<div class='boardSet'>
-				<div class='boardUser'">내용</div>
+				<div class='boardUser'>내용</div>
 				<br>
 				<!-- <input id='boardDetail' name='boardExp' type="text" maxlength="35"
 					placeholder="내용을 입력하세요." style="height: 300px; "> -->
@@ -84,6 +84,7 @@
 					<textarea name="editorTxt" id="editorTxt" rows="20" cols="10"
 						placeholder="내용을 입력해주세요" style="width: 100%" required="required">
 			        </textarea>
+			        <p class="count"><span>0</span> / 800</p>
 				</div>
 			</div>
 			<hr>
@@ -92,7 +93,7 @@
 			</div>
 			<hr> -->
 			<div class='boardLastBtn'>
-				<button type="submit" onclick="submitAdd()">등록</button>
+				<button type="button" onclick="submitAdd()">등록</button>
 				<button type='button' onclick="if(confirm('정말로 취소 하시겠습니까?')){location.href='/boardList.board?cpage=1'}">취소</button>
 			</div>
 		</div>
@@ -132,7 +133,28 @@
 		})
 
 		function submitAdd() {
-			oEditors.getById["editorTxt"].exec("UPDATE_CONTENTS_FIELD", []);
+			var ctntarea = document.querySelector("iframe").contentWindow.document.querySelector("iframe").contentWindow.document.querySelector(".se2_inputarea");
+			var text = ctntarea.innerHTML;
+			var title = $("#boardTitle").val();
+			text = text.replace(/<br>/ig, "");	// br 제거
+			text = text.replace(/&nbsp;/ig, "");// 공백 제거
+			text = text.replace(/\s|　/gi, "");// 공백 제거
+			text = text.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/ig, "");	// html 제거
+			title = title.replace(/\s|　/gi, "");
+			
+			if(title.length == 0){
+				alert("제목을 입력하세요.");
+				return false;
+			}
+			if(text.length == 0){
+				alert("내용을 입력하세요.");
+				return false;
+			}
+			if(confirm('게시글을 작성 하시겠습니까?')){
+				alert("게시글이 등록되었습니다. :)");
+				oEditors.getById["editorTxt"].exec("UPDATE_CONTENTS_FIELD", []);
+				$("#target").submit();
+			}
 		}
 
 		$("input[name='boardScore']:radio").change(function() {
@@ -162,6 +184,25 @@
 			alert(sHTML);
 			oEditors.getById["editorTxt"].exec("PASTE_HTML", [sHTML]);
 		}
+		
+		setTimeout(function() {
+			var ctntarea = document.querySelector("iframe").contentWindow.document.querySelector("iframe").contentWindow.document.querySelector(".se2_inputarea");
+			ctntarea.addEventListener("keyup", function(e) {
+				var text = this.innerHTML;
+				var lenCheck = 800;
+				text = text.replace(/<br>/ig, "");	// br 제거
+				text = text.replace(/&nbsp;/ig, "");// 공백 제거
+				text = text.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/ig, "");	// html 제거
+				
+				var len = text.length;
+				document.querySelector(".count span").innerHTML = len;
+				
+				if(len > lenCheck) {
+					alert("최대 "+lenCheck+" byte까지 입력 가능합니다.");
+					this.innerHTML = this.innerHTML.substring(0,lenCheck);	
+				}	
+			});	
+		}, 1000)
 	</script>
 	<!-- <script type="text/javascript" src="./quick_photo_uploader/plugin/hp_SE2M_AttachQuickPhoto.js" charset="utf-8"></script> -->
 	<jsp:include page="common/footer.jsp" />

@@ -21,9 +21,11 @@
 					onclick="location.href='boardList.board?type=0&cpage=1'">전체
 					보기</button>
 				<button class='down_board'
-					onclick="location.href='boardList.board?type=1&cpage=1'">조회순</button>
+					onclick="location.href='boardList.board?type=1&cpage=1'">조회
+					순</button>
 				<button class='down_board'
-					onclick="location.href='boardList.board?type=2&cpage=1'">최근 작성 순</button>
+					onclick="location.href='boardList.board?type=2&cpage=1'">최근
+					작성 순</button>
 				<!-- <button class='down_board'>태그별 보기</button> -->
 				<div class='btn_write'>
 					<button class='down_write'
@@ -46,8 +48,8 @@
 					<div class="col-lg-2 col-sm-3">번호</div>
 					<div class="col-lg-2 col-sm-3">작성자</div>
 					<div class="col-lg-2 col-sm-3">제목</div>
-					<div class="listoff col-lg-2">조회</div>
-					<div class="listoff col-lg-2">추천</div>
+					<div class="col-lg-2">조회</div>
+					<div class="col-lg-2">추천</div>
 					<div class="col-lg-2 col-sm-3">날짜</div>
 				</div>
 					<c:choose>
@@ -57,12 +59,13 @@
 						<c:otherwise>
 							<c:forEach var="list" items="${list}">
 									<div class='boardSelect boardlist row col-12' data-id='${list.boardNum}' style="margin:0%;">
-										<div class="col-lg-2 col-sm-3">${list.boardNum}</div>
-										<div class="col-lg-2 col-sm-3">${list.writer}</div>
-										<div class="boardTitleTd col-lg-2 col-sm-3">${list.title}</div>
+										<div class="listoff col-lg-2 col-sm-3">${list.boardNum}</div>
+										<div class="listoff col-lg-2 col-sm-3">${list.writer}</div>
+										<div class="listTitleDiv boardTitleTd col-lg-2 col-sm-3">${list.title}</div>
+										<div class="listWriterDiv mo col-lg-2 col-sm-3">${list.writer}</div>
 										<div class="listoff col-lg-2">${list.boardCount}</div>
 										<div class="listoff col-lg-2">${list.boardLike}</div>
-										<div class="col-lg-2 col-sm-3"><fmt:formatDate pattern="yyyy-MM-dd" value="${list.writeDate}"/></div>
+										<div class="listWriteDateDiv col-lg-2 col-sm-3"><fmt:formatDate pattern="yyyy-MM-dd" value="${list.writeDate}"/></div>
 								</div>
 							</c:forEach>
 						</c:otherwise>
@@ -78,7 +81,7 @@
 								</nav>
 			
 			<form action=/boardList.board align="center">
-				<select name="selectType">
+				<select name="selectType" class='selectType'>
 					<option value="1">제목</option>
 					<option value="2">작성자</option>
 				</select> 
@@ -87,7 +90,6 @@
 				<button class='boardSearchBtn'>검색하기</button>
 				
 			</form>
-	<jsp:include page="common/footer.jsp" />
 		</div>
 	</div>
 	<script>
@@ -115,8 +117,12 @@
 		
 		window.onload = function(){
 			var type = getParameterByName("type");
+			if(type == null || type == ""){
+				type = 0;
+			}
 			$(".orderSelect").val(type).prop("selected",true);
 		}
 	</script>
+	<jsp:include page="common/footer.jsp" />
 </body>
 </html>
