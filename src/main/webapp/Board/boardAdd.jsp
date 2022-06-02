@@ -135,16 +135,26 @@
 		function submitAdd() {
 			var ctntarea = document.querySelector("iframe").contentWindow.document.querySelector("iframe").contentWindow.document.querySelector(".se2_inputarea");
 			var text = ctntarea.innerHTML;
+			var title = $("#boardTitle").val();
 			text = text.replace(/<br>/ig, "");	// br 제거
 			text = text.replace(/&nbsp;/ig, "");// 공백 제거
+			text = text.replace(/\s|　/gi, "");// 공백 제거
 			text = text.replace(/<(\/)?([a-zA-Z]*)(\s[a-zA-Z]*=[^>]*)?(\s)*(\/)?>/ig, "");	// html 제거
+			title = title.replace(/\s|　/gi, "");
+			
+			if(title.length == 0){
+				alert("제목을 입력하세요.");
+				return false;
+			}
 			if(text.length == 0){
 				alert("내용을 입력하세요.");
 				return false;
 			}
-			alert("게시글이 등록되었습니다. :)");
-			oEditors.getById["editorTxt"].exec("UPDATE_CONTENTS_FIELD", []);
-			$("#target").submit();
+			if(confirm('게시글을 작성 하시겠습니까?')){
+				alert("게시글이 등록되었습니다. :)");
+				oEditors.getById["editorTxt"].exec("UPDATE_CONTENTS_FIELD", []);
+				$("#target").submit();
+			}
 		}
 
 		$("input[name='boardScore']:radio").change(function() {
