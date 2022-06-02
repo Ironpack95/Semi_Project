@@ -172,8 +172,8 @@ public class SearchDAO {
 				pstat.setString(3, alcholArr[2]);
 				pstat.setString(4, alcholArr[3]);
 				pstat.setString(5, alcholArr[4]);
-				pstat.setString(6, areaArr[4]);
-				pstat.setString(7, areaArr[5]);
+				pstat.setInt(6, grade);
+				pstat.setInt(7, grade);
 				pstat.setFloat(8, abv);
 
 			}

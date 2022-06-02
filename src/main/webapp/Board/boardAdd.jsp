@@ -96,6 +96,7 @@
 				<button type="button" onclick="submitAdd()">등록</button>
 				<button type='button' onclick="if(confirm('정말로 취소 하시겠습니까?')){location.href='/boardList.board?cpage=1'}">취소</button>
 			</div>
+			<jsp:include page="common/footer.jsp" />
 		</div>
 	</form>
 	<div class='background_box'>
@@ -205,6 +206,5 @@
 		}, 1000)
 	</script>
 	<!-- <script type="text/javascript" src="./quick_photo_uploader/plugin/hp_SE2M_AttachQuickPhoto.js" charset="utf-8"></script> -->
-	<jsp:include page="common/footer.jsp" />
 </body>
 </html>

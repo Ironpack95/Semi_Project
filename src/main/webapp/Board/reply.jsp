@@ -264,7 +264,7 @@
 
 
 					<div id="head3">
-						<div class="board_contents">${board.boardExp}</div>
+						<div class="board_contents" style="word-break:break-all;">${board.boardExp}</div>
 					</div>
 
 					<div id="top_line"></div>

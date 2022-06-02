@@ -91,6 +91,7 @@
 				
 			</form>
 		</div>
+			<jsp:include page="common/footer.jsp" />
 	</div>
 	<script>
 		$(document).on("click",".boardSelect",function(){
@@ -123,6 +124,6 @@
 			$(".orderSelect").val(type).prop("selected",true);
 		}
 	</script>
-	<jsp:include page="common/footer.jsp" />
+
 </body>
 </html>
